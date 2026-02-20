@@ -165,7 +165,7 @@ function detectConflicts(mappings: FieldMapping[]) {
   }
 
   const conflicts = [];
-  for (const [, group] of grouped) {
+  for (const [, group] of Array.from(grouped)) {
     if (group.length > 1) {
       conflicts.push({
         id: uuidv4(),
