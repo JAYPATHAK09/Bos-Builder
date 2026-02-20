@@ -186,7 +186,7 @@ export default function ModulePage() {
       const data: GenerateModuleResponse = await res.json();
 
       if (!res.ok) {
-        setError((data as { error: string }).error ?? `Server error (${res.status})`);
+        setError((data as unknown as { error: string }).error ?? `Server error (${res.status})`);
         return;
       }
 
