@@ -183,7 +183,7 @@ export default function ModulePage() {
         }),
       });
 
-      const data: GenerateModuleResponse = await res.json();
+      const data = await res.json() as (GenerateModuleResponse | { error: string });
 
       if (!res.ok) {
         setError((data as unknown as { error: string }).error ?? `Server error (${res.status})`);
