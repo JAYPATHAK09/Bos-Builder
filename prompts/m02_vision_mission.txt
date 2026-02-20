@@ -1,0 +1,228 @@
+# M02: VISION & MISSION MODULE PROMPT
+## Generate Strategic Direction and Market Positioning
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{MODULE_INPUTS}}, {{UPSTREAM_M01}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+Vision and Mission translate Purpose into strategic direction. They answer:
+- Where is the company going in 10 years? (Vision - the BHAG, Big Hairy Audacious Goal)
+- What does it do and for whom? (Mission - the business scope)
+- What is its unique market position? (Positioning)
+- What can customers count on? (Brand Promise)
+
+These documents guide resource allocation, market entry decisions, and product roadmap.
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. VISION STATEMENT (1 sentence, 15-25 words, specific and measurable)
+
+The Vision describes the company 10 years from now. It is a BHAG (Big Hairy Audacious Goal).
+
+**Criteria**:
+- Specific: Names a market position, company scale, or impact metric (not vague like "be a leader")
+- Inspiring: Ambitious enough that it would excite the team
+- Measurable: You could identify in 10 years whether you achieved it
+- Time-bounded: Always "10-year vision" (aligns with planning horizon)
+- Aligned with Purpose (from M01): Does it ladder to why the company exists?
+
+**Examples** (Good vs. Bad):
+
+GOOD: "Become the most trusted digital compliance platform in India, serving 50,000+ MSMEs"
+- Specific (digital compliance, 50k MSMEs), measurable (customer count, market position)
+
+GOOD: "Enable every small manufacturer in South Asia to compete globally via AI-powered supply chain tools"
+- Specific (small manufacturers, South Asia, AI supply chain), inspiring
+
+BAD: "Be a market leader" - too vague
+BAD: "Grow 10x by 2035" - no qualitative vision
+BAD: "Transform the industry" - generic
+
+---
+
+### 2. MISSION STATEMENT (Max 2 sentences, answer: WHAT, FOR WHOM, HOW)
+
+Mission is narrower than Vision. It defines the business scope and operating philosophy.
+
+**Template**: 
+"We [WHAT we do] for [FOR WHOM - target customer], so that [IMPACT/HOW they benefit]."
+
+**Criteria**:
+- Scope clarity: Clear what the company does and doesn't do (helps with "No" decisions)
+- Customer-centric: Focused on customer benefit, not internal activity
+- Realistic: Achievable in 3-5 years (shorter time horizon than Vision)
+- Actionable: Guides product and market decisions
+
+**Example Missions**:
+
+"We provide AI-powered payroll and HR compliance software for Indian MSMEs (50-250 employees), so 
+they can save 20 hours/month on compliance and focus on growth."
+
+"We design and deliver enterprise software training programs for corporations in South Asia, 
+so that their technical teams ship software faster and with fewer defects."
+
+**Common Mistakes**:
+- Too broad ("We provide digital solutions") - could be anything
+- Too internal ("We build great products") - doesn't mention customer benefit
+- Confusing mission with vision ("Become the #1 provider by 2035") - that's vision
+- Vague customer ("Serve businesses everywhere") - no focus
+
+---
+
+### 3. POSITIONING STATEMENT (1 sentence, 20-30 words)
+
+Positioning explains why this company is different in the market and why a specific customer 
+should choose it over alternatives.
+
+**Template**:
+"For [TARGET CUSTOMER], [COMPANY NAME] is [CATEGORY], that [UNIQUE BENEFIT]. Unlike [COMPETITOR], 
+we [KEY DIFFERENTIATOR]."
+
+**Example Positioning**:
+
+"For CFOs in India managing remote teams, TallyConnect is a cloud-first payroll platform that 
+integrates with Tally and complies with all local GST rules. Unlike legacy on-premise solutions, 
+we update tax rules monthly without requiring manual system updates."
+
+**Key Elements**:
+- Target customer: Who specifically (not everyone)
+- Category: What business are you in (payroll software, consulting, marketplace, etc.)
+- Unique benefit: Why does it matter to this customer specifically
+- Differentiation: Why can't they get this elsewhere
+
+---
+
+### 4. BRAND PROMISE (2-3 sentences)
+
+Brand Promise is what customers can ALWAYS count on, every time.
+
+**Criteria**:
+- Specific to your company (not generic)
+- Deliverable consistently (you can reliably meet it)
+- Valued by customers (they would choose you for this reason)
+
+**Examples**:
+
+"Our software is live and available 99.9% of the time. If we go down, you get service credits 
+equal to that downtime. Our customer support responds within 2 hours, even at 2 AM."
+
+"We never sell a product that isn't a perfect fit for your use case, even if it means walking 
+away from revenue. We audit your existing tools first and tell you if you don't need to buy."
+
+---
+
+## ALIGNMENT WITH M01
+
+If {{UPSTREAM_M01}} is available, ensure:
+- Vision and Mission honor the company's Purpose (why it exists)
+- The market position doesn't contradict core Values
+- Positioning reflects company's non-negotiables (e.g., if "never compromise quality," positioning 
+  shouldn't be "lowest cost")
+
+**Consultant's Question**: Does the Vision get us closer to living out the Purpose?
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Company name, current market position, stage
+- Target customer segment (size, industry, geography)
+- Product/service offerings
+- Current annual revenue and growth rate
+
+Replace {{MODULE_INPUTS}} with:
+- Any existing vision/mission statements
+- Founder's 10-year aspiration (if available)
+- Market research or competitive insights
+- Growth ambitions (scale, geography, product expansion)
+
+Replace {{UPSTREAM_M01}} with:
+- Purpose statement (for alignment check)
+- Core values (for consistency in positioning)
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Vision Statement
+[10-year vision]
+
+**Why This Vision**: [1-2 sentences on strategic rationale]
+
+## Mission Statement
+[What we do, for whom, why it matters]
+
+**Scope Clarity**: 
+- In Scope: [What we do]
+- Out of Scope: [What we don't do]
+
+## Positioning Statement
+[Full positioning statement]
+
+## Brand Promise
+[What customers can always count on]
+
+## Alignment with Purpose & Values
+[Brief check against M01, if available]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m02",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Vision Statement",
+      "content": "[Vision + rationale]",
+      "type": "framework"
+    },
+    {
+      "title": "Mission Statement",
+      "content": "[Mission + scope clarity]",
+      "type": "framework"
+    },
+    {
+      "title": "Positioning Statement",
+      "content": "[Positioning]",
+      "type": "framework"
+    },
+    {
+      "title": "Brand Promise",
+      "content": "[Brand promise]",
+      "type": "framework"
+    },
+    {
+      "title": "Alignment Check",
+      "content": "[How Vision/Mission align with M01 Purpose & Values]",
+      "type": "diagnostic"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: 10-year planning horizon is appropriate for this company stage]",
+    "[ASSUMED: Current target customer segment will remain primary in 10 years]"
+  ],
+  "gaps": [
+    "[GAP: Competitive analysis to validate differentiation]",
+    "[GAP: Customer research on what differentiators matter most]"
+  ],
+  "consultant_checklist": {
+    "vision_is_specific_measurable": true,
+    "mission_answers_what_whom_why": true,
+    "positioning_is_defensible": true,
+    "brand_promise_is_deliverable": true,
+    "alignment_with_m01": true
+  },
+  "tokens_hint": 1600
+}
+```
+

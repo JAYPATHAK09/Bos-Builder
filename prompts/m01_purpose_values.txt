@@ -1,0 +1,200 @@
+# M01: PURPOSE & VALUES MODULE PROMPT
+## Generate Foundational Identity Framework for Company
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{MODULE_INPUTS}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+Purpose and Values define WHO the company is beyond the business model. They answer:
+- Why does this company exist? (Purpose)
+- What does it stand for? (Values)
+- What will it never compromise on? (Non-negotiables)
+
+These become reference points for hiring, performance management, decision-making, and culture. 
+They must be specific enough to guide behavior, not generic aspirations.
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. PURPOSE STATEMENT (1-2 sentences, 30-50 words)
+
+The Purpose answers: "Why does this company exist beyond making profit?"
+
+**Criteria**:
+- Specific to this company's domain and impact
+- Inspirational but realistic
+- Testable (would team members recognize it in daily decisions?)
+- Distinct from mission or vision
+- Contains an element of impact/contribution
+
+**Common Mistakes to Avoid**:
+- Vague ("We enable transformation") - too generic
+- Only financial ("Maximize shareholder returns") - not inspiring
+- Too narrow ("Sell widgets") - not a purpose, a transaction
+- Conflating with vision ("Become the market leader") - is about position, not why
+
+**Question for Consultant**: What problem does this company solve that the founder is personally 
+passionate about? What would the founder do even if it were less profitable?
+
+---
+
+### 2. CORE VALUES (3-6 values, depth over breadth)
+
+Each value has three components:
+
+**a) Value Name** (one word, max two)
+- Examples: Integrity, Ownership, Excellence, Customer-First, Transparency
+
+**b) 1-Line Definition** (15-30 words)
+- What does this value mean in this company's context?
+- Specific enough that two people could interpret similarly
+
+**c) 3 Behavioral Indicators** (observable actions, not traits)
+- How would you recognize this value in someone's behavior?
+- Phrased as "Does X" or "Always/Never does Y"
+- Actionable for hiring and performance reviews
+- Example: 
+  - Value: "Ownership"
+  - Indicator 1: "Raises hand for problems, even outside their role"
+  - Indicator 2: "Drives solutions to completion; doesn't blame others for delays"
+  - Indicator 3: "Proactively communicates blockers and impact; doesn't wait to be asked"
+
+**Consultant Checklist for Values**:
+- [ ] Each value is specific to this company's context (not generic)
+- [ ] Values are not contradictory (if two seem opposed, explore nuance)
+- [ ] Behavioral indicators are observable and testable
+- [ ] Values align with founder/leadership's actual behavior (not aspirational PR)
+- [ ] Maximum 6 values (fewer is better; focus is critical)
+- [ ] Each value is defensible; team would fight for it
+
+---
+
+### 3. NON-NEGOTIABLES (2-4 items)
+
+Non-negotiables are boundaries this company will never cross, even under pressure.
+
+**Examples**:
+- We will never compromise data security to save costs
+- We will never pressure sales team to sell to unsuitable clients
+- We will never communicate dishonestly to investors or customers
+- We will never skip quality gates in production
+
+**Phrasing**: "We will never [negative] because [consequence/principle]"
+
+**Difference from Values**:
+- Values are aspirational
+- Non-negotiables are defensive (lines we won't cross)
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Company name, age, stage (Seed/Series A/B/Profitable)
+- Industry vertical, business model (B2B/SaaS/D2C/Services)
+- Founder background and passion (what problem did they see?)
+- Current team size and culture observations
+- Growth stage challenges (scaling? pivoting?)
+
+Replace {{MODULE_INPUTS}} with:
+- Any pre-existing value statements or cultural artifacts
+- Founder's personal mission statement (if available)
+- Customer feedback on what they love about the company
+- What values have shown up naturally in hiring/promotions?
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Purpose Statement
+[Statement]
+
+**Why This Matters**: [One sentence on strategic implication]
+
+## Core Values
+
+### Value 1: [Name]
+**Definition**: [1-line definition]
+
+**Behavioral Indicators**:
+1. [Indicator 1]
+2. [Indicator 2]
+3. [Indicator 3]
+
+**How it shows up in {{COMPANY_PROFILE}}**: [1-2 sentence example]
+
+[Repeat for each value]
+
+## Non-Negotiables
+
+1. **[Non-negotiable 1]** — [Rationale]
+2. **[Non-negotiable 2]** — [Rationale]
+[etc.]
+
+## How to Use This Framework
+
+- **Hiring**: Interview questions should probe for alignment with values
+- **Performance Management**: Link behavioral indicators to performance ratings (M08)
+- **Decision-Making**: When conflicted, ask "Which value applies here?"
+- **Culture**: Reinforce through stories, recognition, corrective action
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m01",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Purpose Statement",
+      "content": "[Purpose + rationale]",
+      "type": "framework"
+    },
+    {
+      "title": "Core Values",
+      "content": "[All values with definitions and indicators]",
+      "type": "framework"
+    },
+    {
+      "title": "Non-Negotiables",
+      "content": "[List with rationale]",
+      "type": "framework"
+    },
+    {
+      "title": "Implementation Guide",
+      "content": "[How to use in hiring, performance, decisions]",
+      "type": "guideline"
+    }
+  ],
+  "suggestions": [
+    {
+      "type": "improvement|warning|question",
+      "section": "Core Values",
+      "content": "[Specific suggestion]"
+    }
+  ],
+  "assumptions": [
+    "[ASSUMED: Founder is still actively involved in culture]",
+    "[ASSUMED: Company is <100 people (scales differently at 500+)]"
+  ],
+  "gaps": [
+    "[GAP: Customer perception data on company values]",
+    "[GAP: Anonymous employee survey on current culture vs. stated values]"
+  ],
+  "consultant_checklist": {
+    "values_are_specific": true,
+    "behavioral_indicators_observable": true,
+    "alignment_with_founder_behavior": true,
+    "non_negotiables_defensible": true,
+    "consultant_would_present": true
+  },
+  "tokens_hint": 1800
+}
+```
+

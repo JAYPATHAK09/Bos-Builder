@@ -1,0 +1,294 @@
+# M12: CONFLICT RESOLVER PROMPT
+## Ad-Hoc Resolution Tool for Cross-Module Inconsistencies
+
+**Input Variables**: {{FIELD_NAME}}, {{VALUE_A}}, {{SOURCE_A}}, {{VALUE_B}}, {{SOURCE_B}}, {{COMPANY_PROFILE}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Conflict Resolver is used when two BOS Builder modules generate conflicting information for 
+the same field. This can happen when:
+- M03 (3-Year Plan) says revenue target is ₹150 Cr by Y3, but M04 (AOP) Year 1 assumes different baseline
+- M05 (KPIs) define "NRR" one way, but M06 (Dashboard) calculates it differently
+- M08 (PMS) says a role is "L4 Manager," but M11 (Org Chart) lists same role as "L5"
+- M09 (Variable Pay) references KPIs from M05 that were updated after M09 was created
+
+This tool systematically analyzes both versions and recommends which to use, or proposes a 
+synthesized resolution.
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### INPUT ANALYSIS
+
+When conflict is detected, capture:
+
+**Field Information**:
+- Field Name: [e.g., "NRR % Definition", "Role Level: VP Sales"]
+- Data Type: [e.g., Metric, Role, Threshold, Target]
+
+**Value A (from Source A)**:
+- Actual Value: [e.g., "Net Revenue Retention = (Revenue in Month X from customers acquired in Month X-12) / (Revenue in Month X-12) * 100"]
+- Source Module: [e.g., "M05: KPI Framework"]
+- Context: [e.g., "Used in KPI definition; published Jan 2026"]
+- Confidence: [High / Medium / Low]
+
+**Value B (from Source B)**:
+- Actual Value: [e.g., "Net Revenue Retention = (Current Month Revenue - Churn Revenue + Expansion Revenue) / Prior Month Revenue"]
+- Source Module: [e.g., "M06: MIS Dashboard"]
+- Context: [e.g., "Used in dashboard calculation; published Feb 2026"]
+- Confidence: [High / Medium / Low]
+
+---
+
+### CONFLICT ANALYSIS FRAMEWORK
+
+**Step 1: Understand Why They Differ**
+
+| Category | Questions |
+|---|---|
+| **Time-Based Divergence** | Did one document get updated after the other? Which is more recent? Does newer = more correct? |
+| **Different Scope** | Are they measuring slightly different things (e.g., by cohort vs. total)? Are both correct but for different purposes? |
+| **Different Perspectives** | One is strategic (3-year plan), other is operational (MIS dashboard). Does each serve its purpose well? |
+| **Calculation Methodology** | Is one using "sum of cohorts" vs "year-over-year"? Which aligns better with how the metric is actually calculated in the system? |
+| **Stakeholder Intent** | Who defined each? Did they have different priorities (e.g., conservative vs. aggressive targeting)? |
+
+**Example Analysis**:
+
+**Conflict**: NRR definition differs between M05 and M06.
+
+| Question | Answer |
+|---|---|
+| Time divergence? | M05 published Jan 2026 (original); M06 published Feb 2026 (1 month later). M06 is newer. |
+| Scope difference? | M05: cohort-based NRR (year-over-year). M06: monthly churn-based NRR (month-over-month). Different calculations entirely. |
+| Perspective? | M05 is strategic (how is company doing long-term?). M06 is operational (what's trending this month?). Both valid but for different purposes. |
+| Methodology? | M05 is mathematically correct for investor reporting (SaaS standard). M06 is easier to track operationally but misses expansion. |
+| Stakeholder intent? | M05 (CFO): accurate for board/investor reporting. M06 (VP CS): pragmatic for weekly ops. |
+
+---
+
+### RECOMMENDATION DECISION TREE
+
+**Decision 1: Is one clearly wrong?**
+
+| Scenario | Decision | Action |
+|---|---|---|
+| **One has a calculation error** (e.g., wrong formula) | Use the correct one | Fix the incorrect module; discard wrong version |
+| **One is outdated; other is explicitly updated** | Use the updated one | Update cross-module references |
+| **Both are mathematically correct but measure different things** | Reconcile the difference | Define both; document when each applies |
+
+**Decision 2: If both are valid, what's the primary use case?**
+
+| Use Case | Primary Metric | Action |
+|---|---|---|
+| **Board/Investor Reporting** | Use M05 (strategic, standard SaaS metrics) | M06 can be secondary or explanatory |
+| **Weekly Operations** | Use M06 (real-time, actionable) | M05 can be reviewed monthly/quarterly |
+| **Employee Bonuses** | Use M05 (consistent, defensible) | Can't use different metrics for same KPI |
+| **Both equally important** | Define both clearly; label distinctly | Metrics A = Cohort NRR; Metric B = Monthly NRR |
+
+**Decision 3: Can we synthesize a single version?**
+
+| Option | Pros | Cons | Recommendation |
+|---|---|---|---|
+| **Use Value A exclusively** | Clear; no confusion | May lose insights from Value B | If A is strategically primary |
+| **Use Value B exclusively** | May be more operationally useful | May confuse investors/board | If B is operationally critical |
+| **Blend: Define both, use for different purposes** | Captures best of both | More complex; requires discipline | If both have distinct, important uses |
+| **Create A+B hybrid metric** | Unified approach | May not serve either use case perfectly | Only if both need one metric |
+
+---
+
+### OUTPUT JSON STRUCTURE
+
+```json
+{
+  "field_name": "NRR % Definition",
+  "conflict_type": "Calculation Methodology",
+  "sources": {
+    "source_a": {
+      "module": "M05: KPI Framework",
+      "value": "Net Revenue Retention = (Revenue in Month X from customers acquired in Month X-12) / (Revenue in Month X-12) * 100",
+      "published": "Jan 2026",
+      "stakeholder": "CFO"
+    },
+    "source_b": {
+      "module": "M06: MIS Dashboard",
+      "value": "Net Revenue Retention = (Current Month Revenue - Churn + Expansion) / Prior Month Revenue",
+      "published": "Feb 2026",
+      "stakeholder": "VP CS"
+    }
+  },
+  "analysis": {
+    "why_different": "M05 uses cohort-based year-over-year methodology (SaaS standard). M06 uses month-over-month trending for operational visibility. Both are mathematically correct but measure different aspects of retention.",
+    "time_recency": "M06 is newer (Feb 2026 vs Jan 2026), but both are current.",
+    "scope_difference": "M05: long-term, strategic (investor reporting). M06: short-term, operational (weekly monitoring).",
+    "error_check": "Both calculations are correct; no formula errors detected."
+  },
+  "recommendation": {
+    "type": "blend",
+    "reasoning": "Both metrics serve distinct, important purposes. M05 is primary for board/investor reporting (standard SaaS metric). M06 is secondary for operational trending and early warning.",
+    "primary_metric": "M05 definition (cohort-based NRR) for all official reporting, bonus calculations, and board updates.",
+    "secondary_metric": "M06 definition (monthly churn-based trend) for operational dashboard and weekly CS reviews.",
+    "decision": "Keep both; clearly label and document when each is used."
+  },
+  "blended_value": {
+    "official": "NRR (Cohort-Based, SaaS Standard) = (Revenue in Month X from customers acquired in Month X-12) / (Revenue in Month X-12) * 100",
+    "operational": "Monthly Churn Trend = (Current Revenue - Churn + Expansion) / Prior Month Revenue (for weekly monitoring)",
+    "clarification": "For reporting and bonuses, use Official. For operational dashboards and CS reviews, use Operational. Do not mix in same report."
+  },
+  "clarifying_questions": [
+    "Does the board/investors expect cohort-based NRR (standard SaaS)? If yes, M05 is correct.",
+    "Does CS team need real-time churn visibility? If yes, M06 is valuable as supplementary.",
+    "Are bonuses tied to NRR? If yes, must use one definition consistently (recommend M05).",
+    "Will this conflict confuse stakeholders? Recommend defining both clearly with labels."
+  ],
+  "action_items": [
+    {
+      "action": "Update M06 (MIS Dashboard) to clarify that monthly churn trend is supplementary to official cohort-based NRR",
+      "owner": "Dashboard Owner",
+      "due_date": "By next dashboard update"
+    },
+    {
+      "action": "In M09 (Variable Pay), explicitly reference M05 NRR definition for bonus calculations",
+      "owner": "CFO / HR",
+      "due_date": "Before bonus season"
+    },
+    {
+      "action": "Document both metrics in M07 (Review System); clarify which to use in MBR vs. weekly ops",
+      "owner": "CEO / CFO",
+      "due_date": "By next MBR agenda"
+    }
+  ],
+  "tokens_hint": 1200
+}
+```
+
+---
+
+## COMMON CONFLICT SCENARIOS
+
+### Conflict Type 1: Different Revenue Targets
+
+**Scenario**:
+- M03 says Y1 revenue target = ₹100 Cr
+- M04 says annual revenue target = ₹90 Cr
+
+**Likely Reason**: M04 was more conservative; M03 is stretch goal
+
+**Resolution**:
+- If same fiscal year: Reconcile. Which is current? Accept newer one.
+- If different time periods: Both can coexist (e.g., M03 is top-down ambition; M04 is bottom-up achievable)
+- Action: Clarify which is "plan" (used for bonuses) vs. "aspiration" (used for strategy)
+
+### Conflict Type 2: Different KPI Definitions
+
+**Scenario**:
+- M05 defines "Customer Acquisition Cost" as (Total Sales + Marketing Spend) / New Customers
+- M06 dashboard calculates CAC as (Monthly Marketing Spend) / Monthly New Customers
+
+**Likely Reason**: M06 simplified for real-time tracking; M05 is more comprehensive
+
+**Resolution**:
+- M05 definition is standard; use for strategic decisions and bonuses
+- M06 can be used for trend monitoring (but must be clearly labeled as "monthly CAC trend")
+- Action: Update M06 to note it's a trend metric, not the official CAC
+
+### Conflict Type 3: Role Level or Accountability
+
+**Scenario**:
+- M08 (PMS) assigns KPI ownership to "VP Sales" for pipeline
+- M11 (Org Chart) lists "pipeline ownership" under "Sales Operations Manager" (L3, not L5)
+
+**Likely Reason**: Org chart was updated; PMS not refreshed
+
+**Resolution**:
+- Check which is more recent
+- If M11 is newer: Update M08 to name the correct owner (Sales Ops Manager)
+- Action: Add role-level accountability matrix to ensure all references align
+
+### Conflict Type 4: Target Dates or Timelines
+
+**Scenario**:
+- M03 says "Launch product by Q2"
+- M04 says "Q1 launch" in quarterly roadmap
+
+**Likely Reason**: Timelines shifted; one document wasn't updated
+
+**Resolution**:
+- Latest date is likely correct
+- Check with Product Owner on actual target
+- Update both documents to single, agreed date
+- Action: Establish document version control and refresh cycle
+
+---
+
+## USAGE GUIDELINES
+
+**When to Use This Prompt**:
+1. Two modules reference the same field with conflicting values
+2. Stakeholders are confused about which version is correct
+3. A decision cannot be made without resolving the conflict
+4. The conflict impacts bonuses, reporting, or key decisions
+
+**When NOT to Use**:
+- Minor wording differences (same meaning, different phrasing) - just standardize language
+- Intentional differences for different audiences (e.g., aggressive plan vs. conservative forecast) - document the difference
+- Newly created modules that haven't been harmonized yet - consider it as expected in drafting phase
+
+**Process**:
+1. Identify the conflict and trigger this prompt
+2. Follow the decision tree
+3. Recommend solution to relevant stakeholder
+4. Update affected modules
+5. Document decision in version history
+
+---
+
+## JSON OUTPUT SCHEMA
+
+See output example above. Key fields:
+
+```json
+{
+  "field_name": "string",
+  "conflict_type": "string (Calculation|Definition|Timeline|Target|Ownership)",
+  "sources": {
+    "source_a": {module, value, published, stakeholder},
+    "source_b": {module, value, published, stakeholder}
+  },
+  "analysis": {
+    "why_different": "string",
+    "time_recency": "string",
+    "scope_difference": "string",
+    "error_check": "string"
+  },
+  "recommendation": {
+    "type": "use_a|use_b|blend|manual",
+    "reasoning": "string",
+    "primary_metric": "string or null",
+    "secondary_metric": "string or null",
+    "decision": "string"
+  },
+  "blended_value": "string or null (if type=blend)",
+  "clarifying_questions": ["string"],
+  "action_items": [
+    {"action": "string", "owner": "string", "due_date": "string"}
+  ],
+  "tokens_hint": int
+}
+```
+
+---
+
+## VERSION CONTROL NOTE
+
+Keep a conflict resolution log:
+
+| Date | Conflict | Decision | Action Owner | Status |
+|---|---|---|---|---|
+| Feb 15, 2026 | NRR definition (M05 vs M06) | Use both; label clearly | VP CS | Resolved |
+| Feb 20, 2026 | Revenue target (M03 vs M04) | Align to M04 (newer) | CFO | Resolved |
+
+This helps prevent the same conflict recurring and creates an audit trail.
+

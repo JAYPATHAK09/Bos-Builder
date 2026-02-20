@@ -1,0 +1,366 @@
+# M09: VARIABLE PAY FRAMEWORK MODULE PROMPT
+## Design Bonus/Incentive Structure Linked to KPIs and Performance
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{UPSTREAM_M05}}, {{UPSTREAM_M11}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Variable Pay Framework defines how bonuses and incentives work. It answers:
+- Who is eligible for variable pay? (Not everyone)
+- How much can they earn? (As % of salary by level)
+- What KPIs drive bonuses? (Company, department, individual)
+- What's the payout curve? (How fast does it ramp?)
+- What's the gate condition? (Does company have to hit minimum?)
+
+A well-designed variable pay program:
+- **Motivates** key behaviors (aligned with KPIs)
+- **Rewards** performance (clear upside opportunity)
+- **Is Transparent** (everyone knows the formula)
+- **Is Achievable** (targets are realistic, not demotivating)
+- **Scales with Company** (doesn't break cash flow)
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. ELIGIBILITY BY BAND
+
+Define who gets variable pay and how much.
+
+**Typical Structure** (by employee level):
+
+| Band | Role Level | Examples | Eligibility | Variable Pay Opportunity |
+|---|---|---|---|---|
+| **Band 1** | Individual Contributors (L0-L2) | Associate, Specialist, Senior IC | No variable pay | 0% of base salary |
+| **Band 2** | Junior Managers (L3) | Team Lead, Junior Manager | Optional; recommend yes | 10% of base salary |
+| **Band 3** | Managers (L4) | Manager, Senior Manager | Yes (required) | 20% of base salary |
+| **Band 4** | Senior Management (L5) | Director, Head of Function | Yes (required) | 30% of base salary |
+| **Band 5** | Executive (L6+) | VP, CEO | Yes (required) | 40-50% of base salary |
+
+**Recommendation** (for Indian startups/SMEs):
+- **Band 1-2**: Optional variable pay (or none); helps keep fixed costs down in early stage
+- **Band 3+**: Mandatory variable pay; aligns incentives at leadership level
+- **CEO**: 40-50% bonus opportunity (tied to company KPIs)
+
+**Rationale**: Only senior enough people should have discretion over KPIs; junior contributors 
+are mostly execution.
+
+---
+
+### 2. KPI LINKAGE (Which KPIs Drive Variable Pay)
+
+Define which metrics trigger bonus payout.
+
+**Typical Structure**:
+
+**Company-Level Gate** (all variable pay subject to this):
+- Minimum company performance threshold (e.g., "Achieve ≥80% of revenue target")
+- If company misses gate, no one gets bonus (or reduced bonus)
+- Rationale: Aligns everyone to company success; prevents bonusing individuals while company fails
+
+**Department-Level KPIs** (drives portion of variable pay):
+- 30-50% of bonus driven by department KPIs (e.g., Sales team bonused on ARR + NRR)
+- Allows departments to optimize for their role in company success
+- Example: Sales 50% on new revenue, 30% on NRR, 20% on profitability
+
+**Individual-Level KPIs** (drives portion of variable pay):
+- 30-50% of bonus driven by individual KPI scorecard
+- Rewards personal contribution
+- Example: Sales rep bonused on personal quota, team collaboration, customer satisfaction
+
+**Example Bonus Structure** (Sales Team):
+
+| Component | Weight | Driver | Formula |
+|---|---|---|---|
+| **Company Gate** | 100% threshold | Revenue vs Budget | Must achieve ≥90% of company revenue target or no bonus |
+| **Department KPI: ARR Growth** | 40% | New + Expansion ARR | Weighted average of team ARR vs. target |
+| **Department KPI: Profitability** | 10% | Gross Margin % | Company gross margin vs. target |
+| **Individual KPI: New Customers** | 35% | Quota attainment | Individual quota vs. target |
+| **Individual KPI: NRR Impact** | 10% | Customer retention & expansion | Individual's customer NRR ≥ 110% |
+| **Behavioral (from PMS)** | 5% | Rating | Bonus modifier: Rating 4+ = 1.0x; Rating 3 = 0.8x; Rating 2 = 0x |
+
+**Bonus Payout Example** (assuming all targets met):
+
+If employee has ₹10L base salary:
+- Variable pay opportunity = 20% × ₹10L = ₹2L potential
+- If all KPIs hit 100%: Payout = ₹2L
+- If KPIs hit 80% of target: Payout = ₹2L × 80% = ₹1.6L
+- If company misses gate: Payout = ₹0 (no bonus)
+
+---
+
+### 3. PAYOUT CURVE (How $ varies with performance)
+
+Define how payout ramps with KPI achievement.
+
+**Typical Payout Curve**:
+
+| Performance Level | Achievement | Payout % |
+|---|---|---|
+| **Below Threshold** | <80% of target | 0% |
+| **Threshold** | 80% of target | 25% of max bonus |
+| **Target** | 100% of target | 100% of max bonus |
+| **Above Target** | 100-120% of target | 100-150% of max bonus (linear) |
+| **Exceeds** | >120% of target | 150% of max bonus (capped) |
+
+**Graphical Representation**:
+
+```
+Payout %
+150% |              X (>120% achievement)
+     |            /
+100% |          X (100% achievement = target)
+     |        /
+25%  |      X (80% = threshold)
+0%   |____________________________
+     0%    80%    100%   120%    150%
+                Achievement %
+```
+
+**Rationale**:
+- Below 80% = no payout (motivates minimum performance)
+- 80-100% = linear increase (encourages closing the gap)
+- 100-120% = continued linear increase (rewards outperformance)
+- >120% = capped at 150% (prevents runaway payouts if target set too low)
+
+**Alternative for High-Risk Roles** (e.g., Sales):
+- 0% below threshold
+- Accelerated curve above target (e.g., 150% payout at 120% achievement)
+- Rationale: Sales exceeding target by 20% should be rewarded more aggressively
+
+---
+
+### 4. GATE CONDITIONS (Company Must Hit Minimum)
+
+Define when bonuses are paid out at all.
+
+**Typical Gate Conditions** (pick one or combine):
+
+| Gate | Trigger | Implication | Rationale |
+|---|---|---|---|
+| Revenue Gate | Company achieves ≥90% of revenue target | No bonus if company misses revenue | Ensures profitable growth |
+| Profit Gate | Company achieves ≥80% of net margin target | No bonus if company is unprofitable | Aligns with company health |
+| Cash Gate | Company maintains >6 months cash runway | No bonus if cash is critical | Prevents bonusing away liquidity |
+| Combined | Revenue AND Profit AND Cash gates all must pass | No bonus unless all 3 met | Most stringent; ensures all dimensions healthy |
+
+**Recommendation** (for Indian startups/SMEs):
+- **Early stage (bootstrapped/pre-raise)**: Revenue gate (top line matters most)
+- **Growth stage (funded)**: Revenue + Profit gates (avoiding unit economics trap)
+- **Mature stage (profitable)**: Revenue + Profit gates (cash usually healthy)
+
+**Example Gate Logic**:
+
+"All variable pay bonuses are subject to company achieving ≥90% of annual revenue target. 
+If company achieves <90% of target, all bonuses are reduced by 50%. If company achieves 
+<80% of target, no bonuses are paid."
+
+---
+
+### 5. THREE PAYOUT SCENARIOS
+
+Show what actual payouts look like in different year outcomes.
+
+**Scenario 1: Bad Year** (Company achieves 75% of revenue target)
+
+| Role | Base Salary | Variable Opportunity | Bonus % Calculation | Actual Payout |
+|---|---|---|---|---|
+| Sales Rep | ₹10L | 20% = ₹2L | 75% revenue < 80% threshold → 0% payout | ₹0 |
+| VP Sales | ₹20L | 30% = ₹6L | 75% revenue < 80% threshold → 0% payout | ₹0 |
+| CFO | ₹25L | 35% = ₹8.75L | Company gate missed → 0% payout | ₹0 |
+
+**Scenario 2: Target Year** (Company achieves 100% of all targets)
+
+| Role | Base Salary | Variable Opportunity | Bonus % Calculation | Actual Payout |
+|---|---|---|---|---|
+| Sales Rep | ₹10L | 20% = ₹2L | 100% on all KPIs × 100% = ₹2L | ₹2L |
+| VP Sales | ₹20L | 30% = ₹6L | 100% on all KPIs × 100% = ₹6L | ₹6L |
+| CFO | ₹25L | 35% = ₹8.75L | 100% on all KPIs × 100% = ₹8.75L | ₹8.75L |
+
+**Scenario 3: Excellent Year** (Company achieves 120% of revenue, all other targets strong)
+
+| Role | Base Salary | Variable Opportunity | Bonus % Calculation | Actual Payout |
+|---|---|---|---|---|
+| Sales Rep | ₹10L | 20% = ₹2L | 120% on KPIs; capped at 150% = ₹3L | ₹3L |
+| VP Sales | ₹20L | 30% = ₹6L | 120% on all KPIs; capped at 150% = ₹9L | ₹9L |
+| CFO | ₹25L | 35% = ₹8.75L | 110% on all KPIs = ₹9.6L | ₹9.6L |
+
+**Total Spend in Each Scenario**:
+- Bad Year: ₹0 (conserves cash)
+- Target Year: ₹16.75L (≈1.5% of revenue if revenue = ₹100 Cr)
+- Excellent Year: ₹21.6L (≈2% of revenue)
+
+---
+
+### 6. EXCEL-READY CALCULATION EXAMPLE
+
+Provide a working template for calculating bonuses.
+
+**Format** (Google Sheets or Excel):
+
+```
+COMPANY PERFORMANCE
+═══════════════════
+Company Revenue Target (FY):  ₹100 Cr
+Company Revenue Actual (FY):  ₹105 Cr
+Achievement %:                105%
+Gate Pass? (≥90%):            YES ✓
+
+KPI LIBRARY (from M05)
+═════════════════════
+New ARR Target:               ₹50 Cr
+New ARR Actual:               ₹48 Cr
+New ARR Achievement %:        96%
+
+INDIVIDUAL BONUS CALCULATION (Sales Rep: Base ₹10L)
+═══════════════════════════════════════════════════
+Variable Pay Opportunity:      20% = ₹2,00,000
+Company Gate Multiplier:       100% (gate passed)
+
+KPI Component Weights & Payouts:
+├─ New Customer Quota (Individual):     Target ₹20L, Actual ₹19L = 95% → Payout 95% × 70% = 66.5%
+├─ Customer Retention (Individual):     Target 110% NRR, Actual 105% = 95% → Payout 95% × 15% = 14.25%
+├─ Department ARR Growth:               Target ₹50 Cr, Actual ₹48 Cr = 96% → Payout 96% × 15% = 14.4%
+│
+├─ Weighted Bonus:  66.5% + 14.25% + 14.4% = 95.15% of max
+├─ Behavioral Modifier (PMS Rating 3):  ×0.85
+│
+Final Payout:  ₹2,00,000 × 95.15% × 0.85 = ₹1,61,878
+
+BONUS SUMMARY
+═════════════
+Base Salary:     ₹10,00,000
+Variable Pay:    ₹1,61,878
+Total Comp:      ₹11,61,878
+```
+
+**Template File**: Provide Excel template with formulas (all automatic calculation once inputs filled in)
+
+---
+
+## LINKING TO M05 (KPI LIBRARY) & M11 (ORG CHART)
+
+**From M05 (KPI Framework)**:
+- All KPIs used in bonus calculations come from M05 library
+- Same definitions, targets, owners as M05
+- If M05 defines "New Customer Count = 50," bonus formula uses 50 as target
+
+**From M11 (Org Chart)**:
+- Each role in org chart has a bonus structure based on their band
+- Different roles have different KPI weights (e.g., Sales weighted on revenue, Product on velocity)
+- Ensures alignment across org
+
+**Validation Checklist**:
+- [ ] All bonus KPIs reference M05 library
+- [ ] Targets in bonus formula = targets in M05
+- [ ] Every person with variable pay has a role-based structure
+- [ ] Total bonus spend is budgeted and disclosed to board
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current compensation approach (fixed only? bonuses today?)
+- Total payroll and typical profit margins
+- Cash position and burn rate
+- Growth targets and revenue expectations
+
+Replace {{UPSTREAM_M05}} with:
+- Full KPI library (metrics, targets, owners, frequencies)
+- Department and individual KPIs
+
+Replace {{UPSTREAM_M11}} with:
+- Org chart and employee levels/bands
+- Current role structure
+- Headcount by band
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Eligibility by Band
+[Who gets variable pay; opportunity by level]
+
+## KPI Linkage Structure
+[Company gate + department + individual KPIs]
+
+## Payout Curves
+[Graph and table showing how $ ramps with achievement]
+
+## Gate Conditions
+[What must happen for bonuses to be paid]
+
+## Three Payout Scenarios
+[Bad year, target year, excellent year with actual numbers]
+
+## Excel Bonus Calculator Template
+[Copy-paste ready; illustrative examples]
+
+## Governance & Adjustments
+[When bonuses can be adjusted; appeal process]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m09",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Eligibility by Band",
+      "content": "[Who gets variable pay; opportunity by level]",
+      "type": "framework"
+    },
+    {
+      "title": "KPI Linkage",
+      "content": "[Company gate + dept + individual KPIs]",
+      "type": "framework"
+    },
+    {
+      "title": "Payout Curves",
+      "content": "[Graphs and tables]",
+      "type": "framework"
+    },
+    {
+      "title": "Gate Conditions",
+      "content": "[Thresholds for bonus payout]",
+      "type": "framework"
+    },
+    {
+      "title": "Payout Scenarios",
+      "content": "[Bad/target/excellent year payouts]",
+      "type": "example"
+    },
+    {
+      "title": "Excel Calculator Template",
+      "content": "[Copy-paste ready formulas]",
+      "type": "template"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Company has positive gross margins]",
+    "[ASSUMED: M05 KPI library is finalized]",
+    "[ASSUMED: Org chart and bands are defined (M11)]"
+  ],
+  "gaps": [
+    "[GAP: Actual cash flow projections to validate bonus spend]",
+    "[GAP: Competitor benchmarking on bonus levels]"
+  ],
+  "consultant_checklist": {
+    "kpis_from_m05": true,
+    "eligibility_clear": true,
+    "payout_curve_realistic": true,
+    "gate_conditions_sensible": true,
+    "scenarios_are_realistic": true,
+    "excel_template_works": true
+  },
+  "tokens_hint": 2200
+}
+```
+

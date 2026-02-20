@@ -1,0 +1,246 @@
+# M03: 3-YEAR STRATEGIC PLAN MODULE PROMPT
+## Translate Vision into 3-Year Roadmap with Strategic Themes and Targets
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{MODULE_INPUTS}}, {{UPSTREAM_M02}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The 3-Year Strategic Plan bridges the 10-year Vision to the 1-year Annual Operating Plan. 
+It answers:
+- What are the 3-5 strategic priorities for the next 3 years?
+- What does success look like in Year 1, 2, 3? (Revenue, scale, product, market expansion)
+- What major initiatives will we fund to achieve those goals?
+- What are the risks, and how do we mitigate them?
+
+This plan is a "working document" that gets refreshed annually as you learn.
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. STRATEGIC THEMES (3-5 themes with rationale)
+
+Each theme is a major area of focus. Themes typically fall into categories:
+- Market Expansion (new geographies, segments, channels)
+- Product / Service (new offerings, deepening existing)
+- Operational Excellence (efficiency, automation, quality)
+- Capability Building (talent, technology, partnerships)
+- Customer Retention / Expansion (NRR, upsell, retention)
+
+**Template for Each Theme**:
+
+**Theme Name**: [Clear name, e.g., "Expand into SME Segment", "Build AI-Powered Core"]
+
+**Rationale**: 
+- Why now? (market opportunity, competitive threat, internal capability)
+- Strategic impact (how does this move us toward Vision?)
+- Success metric (how will we know we nailed this theme in 3 years?)
+
+**Example Theme**:
+
+**Theme**: "Scale from B2B Services to B2B SaaS Product"
+**Rationale**: Market is shifting toward self-serve software. We have proven demand from 20+ services clients. 
+Building a product enables 10x scale without proportional headcount. Takes us closer to Vision of 
+"10,000 customers using our platform."
+**Success Metric (Y3)**: 500+ SaaS customers, $2M ARR, 60%+ NRR
+
+---
+
+### 2. REVENUE TARGETS BY YEAR
+
+Provide Year 1, Year 2, Year 3 targets broken down by revenue stream (if >1 stream exists).
+
+**Format**:
+
+| Revenue Stream | Y0 (Actual) | Y1 Target | Y1 Rationale | Y2 Target | Y3 Target |
+|---|---|---|---|---|---|
+| Core Service | ₹XX Cr | ₹XX Cr | [growth driver: new clients/pricing/delivery] | ₹XX Cr | ₹XX Cr |
+| Product Revenue | ₹X Cr | ₹X Cr | [launch in Q2] | ₹X Cr | ₹X Cr |
+| **Total** | **₹XX Cr** | **₹XX Cr** | | **₹XX Cr** | **₹XX Cr** |
+
+**Guidance on Target-Setting**:
+- Year 1: Conservative (80% confidence achievable). Builds credibility.
+- Year 2-3: Progressive stretch (60% confidence). Challenging but motivating.
+- Consider: current growth rate, market size, sales capacity, product readiness
+- Always include rationale (not just a number)
+
+---
+
+### 3. KEY INITIATIVES PER THEME (3-5 initiatives per theme)
+
+Initiatives are major projects that deliver the theme.
+
+**Template**:
+
+| Initiative | Theme | Owner | Timeline | Investment | Key Milestone (Y1) |
+|---|---|---|---|---|---|
+| [Name] | [Theme] | [Role] | Q1-Q2 | ₹[XX] | [Deliverable in Year 1] |
+
+**Example Initiatives** for "Expand to SME Segment" theme:
+
+| Initiative | Theme | Owner | Timeline | Investment | Y1 Milestone |
+|---|---|---|---|---|---|
+| Build Channel Partner Program | Expand SME | VP Sales | Q2-Q4 | ₹20L | 10 active partners, 50 SME customers acquired |
+| Launch Product-Lite Offering | Expand SME | Product | Q1-Q3 | ₹50L | SME-specific feature set, 2 beta customers |
+| Create SME-Focused Marketing | Expand SME | Marketing | Q1-Q2 | ₹15L | 10K website visitors/month, 5% conversion to trial |
+
+---
+
+### 4. KEY RISKS PER THEME (2-3 risks per theme)
+
+Identify what could derail each theme and mitigation.
+
+**Format**:
+
+| Theme | Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|---|
+| [Theme] | [Risk: e.g., key person departure] | H/M/L | H/M/L | [Action: e.g., document processes, identify successor] |
+
+**Example**:
+
+| Theme | Risk | Likelihood | Impact | Mitigation |
+|---|---|---|---|---|
+| Scale SaaS | Rapid churn due to poor onboarding | M | H | Hire Customer Success manager by Q2; build onboarding checklist; measure NRR monthly |
+
+---
+
+### 5. RESOURCE & INVESTMENT INDICATIVE
+
+For each major initiative, estimate investment needed (headcount, budget, time).
+
+**Format** (Inline or Summary Table):
+
+- **Headcount**: X new roles needed (e.g., 2 engineers, 1 product manager)
+- **Budget**: ₹XX Cr / ₹XX L in FY2025-26
+- **Existing Capacity**: Y% of current team re-allocated to these initiatives
+
+**Consultant Insight**: If sum of initiatives exceeds 100% of org capacity, you've over-committed. 
+Prioritize ruthlessly.
+
+---
+
+### 6. YEAR-1 HEADLINE PLANNING BRIDGE
+
+The Year-1 specific targets and initiatives become inputs to the Annual Operating Plan (M04). 
+Provide a summary that sets up AOP:
+
+**Year 1 Success Looks Like**:
+- Revenue target: ₹XX Cr
+- Customer base: X customers (new: Y)
+- Product milestones: [List 3-5 major product launches/updates]
+- Org scale: X people → X people
+- Market presence: [Geographic, segment, or channel expansion]
+
+---
+
+## ALIGNMENT WITH M02 VISION & MISSION
+
+If {{UPSTREAM_M02}} is available:
+- Each strategic theme should ladder to the Vision and Mission
+- Confirm that 3-year initiatives get the company closer to the 10-year BHAG
+
+**Consultant's Question**: If we execute this 3-Year Plan perfectly, are we positioned to hit the Vision?
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current revenue, growth rate (last 3 years)
+- Current customer base and segment breakdown
+- Org size and key capabilities
+- Market position and competitive dynamics
+
+Replace {{MODULE_INPUTS}} with:
+- Founder/leadership's 3-year ambitions
+- Known market opportunities or threats
+- Product roadmap inputs
+- Geographic or segment expansion plans
+- Any existing strategic plans (to build on or replace)
+
+Replace {{UPSTREAM_M02}} with:
+- Vision statement (to ensure alignment)
+- Mission statement (to ensure themes are in-scope)
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Strategic Themes (Overview)
+[Summary of 3-5 themes, each with rationale and success metric]
+
+## Revenue Trajectory
+[Table: Y1, Y2, Y3 targets by stream]
+
+## Detailed Initiatives & Roadmap
+[Table of initiatives by theme with owner, timeline, investment, Y1 milestone]
+
+## Risk Register
+[Table: theme, risk, mitigation]
+
+## Investment Summary
+[Total headcount, budget, capacity implications]
+
+## Year 1 Success Criteria (Bridge to AOP)
+[What Year 1 success looks like; feeds into M04]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m03",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Strategic Themes",
+      "content": "[3-5 themes with rationale and success metrics]",
+      "type": "framework"
+    },
+    {
+      "title": "Revenue Targets",
+      "content": "[Y1, Y2, Y3 targets by stream]",
+      "type": "framework"
+    },
+    {
+      "title": "Key Initiatives",
+      "content": "[Detailed initiatives table with owners, timelines, investment]",
+      "type": "template"
+    },
+    {
+      "title": "Risk Register",
+      "content": "[Risks, likelihood, impact, mitigation]",
+      "type": "diagnostic"
+    },
+    {
+      "title": "Year 1 Success Bridge",
+      "content": "[Year 1 targets and initiatives that feed into M04 AOP]",
+      "type": "guideline"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Current growth trajectory can be sustained/exceeded]",
+    "[ASSUMED: Key people will remain with organization]",
+    "[ASSUMED: Market conditions will not dramatically change]"
+  ],
+  "gaps": [
+    "[GAP: Detailed market sizing for new segments/geographies]",
+    "[GAP: Competitive win/loss analysis]",
+    "[GAP: Product roadmap detail for major launches]"
+  ],
+  "consultant_checklist": {
+    "themes_ladder_to_vision": true,
+    "revenue_targets_reasonable": true,
+    "initiatives_have_owners": true,
+    "risks_identified": true,
+    "investment_within_capacity": true
+  },
+  "tokens_hint": 2200
+}
+```
+

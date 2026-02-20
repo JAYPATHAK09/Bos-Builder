@@ -1,0 +1,274 @@
+# M06: MIS DASHBOARD BLUEPRINT MODULE PROMPT
+## Design Executive and Department Dashboards for Real-Time Monitoring
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{UPSTREAM_M05}}, {{INDUSTRY_TYPE}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The MIS (Management Information System) Dashboard is the "control center" for monitoring KPIs in 
+real-time. It translates the KPI Framework (M05) into visual, actionable dashboards.
+
+An MIS Dashboard answers:
+- What is the top-line health of the business RIGHT NOW?
+- Which departments are on track vs. at risk?
+- What actions do we need to take this week/month?
+- How are we trending vs. plan?
+
+A well-designed dashboard is:
+- **Visual**: Use color (green/yellow/red RAG status), charts, sparklines, not just numbers
+- **Automated**: No manual data entry; pulls from source systems in real-time
+- **Hierarchical**: CEO dashboard shows top metrics; drill-down to department dashboards
+- **Actionable**: Every metric has a clear owner and "if red, then we do X"
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. CEO DASHBOARD (Top 7 Metrics + Layout)
+
+The CEO dashboard is reviewed daily/weekly and shown in investor updates and board meetings.
+
+**Typical Layout**:
+- Row 1 (Top): 3 critical metrics (revenue, margin, cash)
+- Row 2 (Middle): 2-3 health metrics (churn, customer count, headcount)
+- Row 3 (Bottom): Optional secondary metrics (pipeline, feature velocity)
+
+**Metric Card Components** (for each metric):
+- **Metric Name**: "Monthly Recurring Revenue"
+- **Current Value**: ₹X Cr (updated daily/weekly)
+- **Target Value**: ₹X Cr (from M04/M05)
+- **% of Plan**: 98% (if 98% of target, flag yellow)
+- **RAG Status**: Green / Yellow / Red
+- **Trend**: Mini sparkline or % change MoM
+- **Owner**: Name or role (clickable to drill-down)
+
+**Example CEO Dashboard** (SaaS):
+
+| Metric | Current | Target | % Plan | RAG | Trend | Owner |
+|---|---|---|---|---|---|---|
+| Monthly Recurring Revenue | ₹5.2 Cr | ₹5.5 Cr | 95% | Yellow | ↑ 3% MoM | VP Sales |
+| Gross Margin % | 62% | 65% | 95% | Yellow | ↓ 2% (eng costs up) | CFO |
+| Net Revenue Retention | 108% | 110% | 98% | Green | Stable | VP CS |
+| New Customer Count (Month) | 38 | 50 | 76% | Red | ↓ 15% vs last month | VP Sales |
+| Cash Runway | 24 months | >12 months | 200% | Green | Stable | CFO |
+| Headcount | 48 | 50 | 96% | Green | Hiring plan on track | HR |
+| Feature Completion | 4/6 features | 6/6 | 67% | Yellow | 2 blocked on API | VP Eng |
+
+**Color Rules** (Red/Yellow/Green):
+- **Green**: >90% of target
+- **Yellow**: 75-90% of target (watch list)
+- **Red**: <75% of target (requires action)
+- **Variance**: Show prior month/quarter for trend
+
+---
+
+### 2. DEPARTMENT DASHBOARDS (One per Key Function)
+
+Each department head has a dashboard with their own KPIs and those that impact them.
+
+**Generate dashboards for these departments** (by industry type, from M04):
+
+**For B2B/SaaS**:
+- Sales Dashboard (pipeline, ARR, win rate, deal stage)
+- CS & Retention Dashboard (NRR, churn, CSAT, onboarding)
+- Product & Engineering Dashboard (feature velocity, bugs, code quality, incidents)
+- Marketing Dashboard (MQL, conversion, CAC, content metrics)
+- Finance Dashboard (OPEX vs budget, headcount, burn)
+
+**For D2C/E-commerce**:
+- Sales / Direct Dashboard (GMV, AOV, orders, conversion)
+- Marketing Dashboard (CAC, ROAS, traffic sources, email metrics)
+- Operations Dashboard (fulfillment time, inventory, returns)
+- Finance Dashboard (margin %, COGS, cash cycle)
+
+**For Manufacturing**:
+- Operations Dashboard (production capacity, quality, lead time)
+- Sales Dashboard (units, ASP, mix, backlog)
+- Finance Dashboard (COGS, margin, payables)
+- HR Dashboard (utilization, safety, attrition)
+
+**Example Sales Dashboard** (SaaS):
+
+| Metric | Current | Target | % Plan | RAG | Trend | Owner |
+|---|---|---|---|---|---|---|
+| Monthly ARR Addition | ₹80L | ₹100L | 80% | Yellow | ↓ 10% from last month | Account Exec Team Lead |
+| New Customers (Month) | 38 | 50 | 76% | Red | ↓ 15% (2 deals slipped) | VP Sales |
+| Pipeline | ₹1.2 Cr | ₹1.5 Cr | 80% | Yellow | ↓ 5% | VP Sales |
+| Win Rate | 28% | 35% | 80% | Yellow | ↓ 2% pts from avg | Sales Operations |
+| Deal Cycle Time | 45 days | 40 days | 88% | Yellow | ↑ 5 days (more due diligence) | VP Sales |
+| Sales Quota Attainment | 75% | 100% | 75% | Red | 3 of 5 team members behind | VP Sales |
+| Forecast Accuracy | 95% | 98% | 97% | Green | Stable | Sales Operations |
+
+---
+
+### 3. METRIC-TO-SOURCE MAPPING TABLE
+
+Document how each metric is calculated and which system owns the data.
+
+**Format**:
+
+| Metric | Definition | Formula | Data Source | Refresh Frequency | Owner | Calculation Notes |
+|---|---|---|---|---|---|---|
+| Monthly ARR | Monthly recurring revenue from subscriptions | Sum of active monthly subs + annual / 12 | Stripe API + Accounting System | Daily | CFO | Update at 2 AM IST daily |
+| New Customers | Count of new customers added in period | Count of contracts signed in month | CRM (Salesforce) | Daily | Sales Ops | Exclude trials, count as customer on contract sign |
+| NRR % | Net revenue retention by cohort | (Revenue this month / revenue 12 months ago) * 100 | Accounting + Cohort analysis | Monthly (15th) | VP CS | Run monthly cohort analysis by acquisition month |
+| Churn Rate | % of customers lost in month | (Customers lost this month / customers start of month) * 100 | CS Platform (Gainsight) | Daily | VP CS | Exclude voluntary downgrades to lower tier |
+
+**Key Elements**:
+- **Data Source**: Which system (Salesforce, Stripe, Google Analytics, etc.)
+- **Refresh Frequency**: Daily/Weekly/Monthly (must be automated)
+- **Owner**: Named role responsible for data integrity
+- **Calculation Notes**: Any nuances (exclusions, adjustments, one-time items)
+
+---
+
+### 4. REFRESH CADENCES (Automation Schedule)
+
+Define when each dashboard updates and how (automated vs. manual).
+
+**Format**:
+
+| Dashboard | Metrics | Refresh Schedule | Automation Tool | Manual Steps | SLA |
+|---|---|---|---|---|---|
+| CEO Dashboard | Revenue, Margin, Churn, CAC, Headcount | Daily (8 AM IST) | Tableau / Data Studio | 0 (fully automated) | 99.5% uptime |
+| Sales Dashboard | Pipeline, ARR, Win Rate, Deal Cycle | Daily (10 AM IST) | Salesforce Reports API | Forecast entry by reps | Updated by 10 AM same day |
+| CS Dashboard | NRR, Churn, CSAT, Onboarding | Weekly (Mon 9 AM) | Gainsight + SQL query | None | Updated every Monday |
+| Finance Dashboard | OPEX, Cash, Burn, Payables | Weekly (Fri) | QuickBooks / Accounting system | None | Updated every Friday |
+
+**Automation Note**: Use tools like Tableau, Looker, Google Data Studio, or custom dashboards (Retool, Superset). 
+Avoid manual dashboards; they go stale.
+
+---
+
+### 5. ALERT & THRESHOLD DEFINITIONS
+
+Define when a metric triggers an alert to management.
+
+**Format**:
+
+| Metric | Green Threshold | Yellow Threshold | Red Threshold | Alert Action |
+|---|---|---|---|---|
+| Revenue vs Plan | >95% | 85-95% | <85% | Slack notification to CEO; emergency sales standup scheduled |
+| NRR | >110% | 100-110% | <100% | Email to VP CS; weekly customer review scheduled |
+| Cash Runway | >12 months | 6-12 months | <6 months | Email to CFO + CEO; board notification required |
+| Pipeline | >1.5x month target | 1.2-1.5x | <1.2x | Email to VP Sales; deal review with exec leadership |
+
+**Automation**: Alerts should push to Slack, email, or SMS (not require manual checking).
+
+---
+
+### 6. PULLING KPIs FROM M05 LIBRARY
+
+Every metric in the dashboard should:
+- Have a corresponding definition in M05 KPI library
+- Use the same formula and target
+- Have the same owner assigned
+- Reference the same data source
+
+**Validation Checklist**:
+- [ ] Each dashboard metric has an entry in M05 KPI Catalog
+- [ ] Formulas match exactly between M05 and dashboard
+- [ ] Targets are consistent with M04 AOP goals
+- [ ] Owners are named and the same across documents
+- [ ] Data sources are documented in both M05 and M06
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current business model and revenue streams
+- Key software systems in use (CRM, accounting, CS platform, analytics)
+- Team size and structure
+- Current manual reporting processes
+
+Replace {{UPSTREAM_M05}} with:
+- Full KPI library (all metrics with definitions, targets, owners)
+- CEO-level KPI set
+- Department-level KPIs
+- KPI hierarchy
+
+Replace {{INDUSTRY_TYPE}} with:
+- B2B/SaaS/D2C/Manufacturing/Professional Services
+- (Determines which department dashboards to create)
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## CEO Dashboard Design
+[Layout description, metric cards, RAG rules]
+
+## Department Dashboards (by function)
+[One dashboard spec per key department]
+
+## Metric-to-Source Mapping
+[Table: metric, formula, source, refresh frequency, owner]
+
+## Refresh Cadence & Automation
+[Schedule table; tools & manual steps; SLAs]
+
+## Alert Thresholds & Actions
+[Red/yellow/green rules; automation]
+
+## Data Governance & Integrity
+[How to ensure data quality; owner accountability]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m06",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "CEO Dashboard",
+      "content": "[Layout, metrics, RAG rules]",
+      "type": "template"
+    },
+    {
+      "title": "Department Dashboards",
+      "content": "[One per function, metric details]",
+      "type": "template"
+    },
+    {
+      "title": "Metric-to-Source Mapping",
+      "content": "[Data source table]",
+      "type": "framework"
+    },
+    {
+      "title": "Refresh Cadence",
+      "content": "[Automation schedule; tools; SLAs]",
+      "type": "guideline"
+    },
+    {
+      "title": "Alert Thresholds",
+      "content": "[Red/yellow/green definitions]",
+      "type": "framework"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Real-time data sources are available/accessible]",
+    "[ASSUMED: Organization has or will adopt dashboard tool]"
+  ],
+  "gaps": [
+    "[GAP: Current software tool stack & APIs available]",
+    "[GAP: Historical data to establish trend baselines]"
+  ],
+  "consultant_checklist": {
+    "dashboards_pull_from_m05": true,
+    "formulas_unambiguous": true,
+    "data_sources_identified": true,
+    "alerts_actionable": true,
+    "automation_feasible": true
+  },
+  "tokens_hint": 2400
+}
+```
+

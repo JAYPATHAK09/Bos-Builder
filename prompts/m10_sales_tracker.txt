@@ -1,0 +1,354 @@
+# M10: SALES TRACKER MODULE PROMPT
+## Design Sales Dashboard for Revenue Tracking, Pipeline, and Forecasting
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{UPSTREAM_M04}}, {{INDUSTRY_TYPE}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Sales Tracker is the operational dashboard for monitoring revenue health in real-time. 
+It answers:
+- Are we on track to hit monthly/quarterly/annual revenue targets?
+- What is pipeline visibility into future months?
+- How are individual sales team members performing vs. quota?
+- What is the forecast for the next 2 months?
+- What are the key leading indicators of future revenue?
+
+A well-designed sales tracker:
+- **Real-time**: Updated daily or weekly (not monthly)
+- **Actionable**: Shows what needs immediate attention
+- **Transparent**: Everyone knows where deals are
+- **Forecasted**: Provides visibility 60+ days ahead
+- **Tied to KPIs**: Links to M05 sales KPIs
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. TARGET VS. ACTUAL TABLE (Monthly and By Product/Salesperson)
+
+Show monthly revenue performance against plan.
+
+**Format: By Month**:
+
+| Month | Product/Service | Target (₹L) | Actual (₹L) | % of Plan | YTD Target | YTD Actual | YTD % Plan |
+|---|---|---|---|---|---|---|---|
+| **April** | Service A | 50 | 48 | 96% | 50 | 48 | 96% |
+| | Service B | 30 | 32 | 107% | 30 | 32 | 107% |
+| | **Total** | **80** | **80** | **100%** | **80** | **80** | **100%** |
+| **May** | Service A | 50 | — | — | 100 | 48 | 48% |
+| | Service B | 30 | — | — | 60 | 32 | 53% |
+| | **Total** | **80** | **— (in progress)** | **—** | **160** | **80** | **50%** |
+
+**Format: By Salesperson** (for Sales team):
+
+| Salesperson | Territory | Monthly Quota (₹L) | Monthly Actual (₹L) | % of Quota | YTD Quota | YTD Actual | Rank |
+|---|---|---|---|---|---|---|---|
+| Ravi Sharma | Enterprise | 40 | 38 | 95% | 40 | 38 | #2 |
+| Priya Desai | Mid-Market | 25 | 28 | 112% | 25 | 28 | #1 |
+| Amit Singh | SME | 15 | 12 | 80% | 15 | 12 | #3 |
+| **Team Total** | **—** | **80** | **78** | **98%** | **80** | **78** | **—** |
+
+**RAG Status** (color coding):
+- Green: >95% of plan
+- Yellow: 80-95% of plan (watch)
+- Red: <80% of plan (action required)
+
+---
+
+### 2. PIPELINE SUMMARY TABLE (By Stage and Conversion Rates)
+
+Show sales pipeline visibility into future revenue.
+
+**Format**:
+
+| Pipeline Stage | Count | Avg Deal Size (₹L) | Total Value (₹L) | Conversion Rate (Historical) | Expected Revenue (₹L) |
+|---|---|---|---|---|---|
+| **Stage 1: Lead/Prospect** | 45 | 2 | 90 | 10% | 9 |
+| **Stage 2: Discovery** | 20 | 4 | 80 | 25% | 20 |
+| **Stage 3: Proposal/Demo** | 15 | 5 | 75 | 40% | 30 |
+| **Stage 4: Negotiation** | 8 | 6 | 48 | 60% | 29 |
+| **Stage 5: Closing** | 5 | 8 | 40 | 80% | 32 |
+| **Total Pipeline** | **93** | **—** | **333** | **—** | **120** |
+| **Current Month Revenue** | **—** | **—** | **—** | **—** | **80** |
+
+**Interpretation**:
+- Total pipeline value (₹333L) ÷ monthly revenue target (₹80L) = 4.2x coverage (healthy)
+- Expected revenue from current pipeline = ₹120L (includes all stages with conversion applied)
+- If current deals close per historical rates, expect ₹120L revenue in next 3 months (average ₹40L/month)
+
+**Pipeline Health Checks**:
+- [ ] Pipeline coverage > 3x monthly target (3 months of revenue in pipeline)
+- [ ] Each deal has clear expected close date
+- [ ] Historical conversion rates are tracked and updated quarterly
+- [ ] Deal sizes align with historical average (watch for unrealistic deal sizes)
+
+---
+
+### 3. 2-MONTH ROLLING FORECAST (Methodology and Table)
+
+Provide 60-day forward visibility with high confidence.
+
+**Methodology**:
+1. **Month 1 Forecast** = Very high confidence (95%+)
+   - Only includes deals with >80% probability of close
+   - Based on committed customer interactions
+   - Typically 80-90% of target
+
+2. **Month 2 Forecast** = Medium confidence (60-70%)
+   - Includes deals with >50% probability of close
+   - Based on proposal status and customer engagement
+   - Typically 50-70% of target
+
+3. **Month 3+ ** = Low confidence (<50%)
+   - Pipeline-based forecast using historical conversion
+   - Not included in "rolling forecast" (shown separately as "pipeline")
+
+**Rolling Forecast Table** (Updated weekly):
+
+| Forecast Period | Month 1 (May) | Month 2 (Jun) | Month 3+ (Jul+) |
+|---|---|---|---|
+| **Revenue Target** | ₹80L | ₹80L | ₹80L+ (pipeline) |
+| **High Confidence Deals (>80% prob)** | ₹75L | ₹50L | — |
+| **Medium Confidence Deals (50-80% prob)** | ₹10L | ₹35L | — |
+| **Pipeline (>50% prob)** | — | — | ₹120L (3.2x target) |
+| **Total Forecast** | **₹85L** | **₹85L** | **₹120L (expected)** |
+| **% of Target** | **106%** | **106%** | **150%** |
+| **Confidence Level** | **95%** | **70%** | **60%** |
+
+**Week-to-Week Tracking** (sample for May forecast):
+
+| Week Ending | High Conf (₹L) | Med Conf (₹L) | Total Forecast (₹L) | vs. Last Week | Status |
+|---|---|---|---|---|---|
+| May 3 | 72 | 8 | 80 | — | On plan |
+| May 10 | 73 | 10 | 83 | +3 | Tracking up |
+| May 17 | 75 | 10 | 85 | +2 | Trending up |
+| May 24 | 76 | 9 | 85 | — | Steady |
+| May 31 (Actuals) | — | — | **80** (actual) | — | ✓ Hit target |
+
+---
+
+### 4. REVENUE BRIDGE (Plan vs. Actual Waterfall)
+
+Explain variance between plan and actual with a waterfall chart.
+
+**Format** (Sample, April month):
+
+```
+April Revenue Bridge
+═══════════════════
+
+Starting Plan:                    ₹80L
+│
+├─ Service A: Shortfall         -₹2L (Target ₹50L, Actual ₹48L)
+├─ Service B: Over-achieve      +₹2L (Target ₹30L, Actual ₹32L)
+├─ New Product Launch (Q2 init) +₹0L (Delayed, pushed to May)
+│
+Ending Actual:                    ₹80L
+│
+Variance Explanation: Hit plan, but uneven by product. Service A shortfall 
+                      offset by Service B strength. No major misses.
+Key Drivers: 
+  - Service A: 1 large deal slipped to May (₹2L)
+  - Service B: Strong SME uptake; pricing power improved
+Action Items:
+  - Follow up on Service A deal; confirm May close
+  - Accelerate New Product launch (should be May week 1)
+```
+
+**Waterfall Chart** (visual representation):
+
+```
+Revenue (₹L)
+100 |
+    |        ╔═══════════╗
+80  |────────║   80 Act  ║────────
+    |    ╔═══╝       +2  ╚═══╗
+60  |    ║   -2          +2   ║
+    |╔═══╣                    ╚════════╗
+40  |║ 80 ║                           80
+    |║Plan║                           Act
+20  |║    ║
+    |╚════╩────────────────────────────╯
+0   └──────────────────────────────────
+    Plan   Svc A   Svc B   New Prod   Act
+           -₹2L    +₹2L      +₹0L
+```
+
+---
+
+### 5. SALES TEAM PERFORMANCE LEAGUE TABLE
+
+Rank individual reps/teams on quota attainment and other metrics.
+
+**Format**:
+
+| Rank | Salesperson | Territory | YTD Quota (₹L) | YTD Actual (₹L) | % of Quota | # Deals Closed | Avg Deal (₹L) | Quota Trend |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Priya Desai | Mid-Market | 25 | 28 | 112% | 6 | 4.7 | ↑ On pace to exceed |
+| 2 | Ravi Sharma | Enterprise | 40 | 38 | 95% | 5 | 7.6 | ↓ Behind; 2 deals slipped |
+| 3 | Amit Singh | SME | 15 | 12 | 80% | 8 | 1.5 | ↓ Struggling; needs coaching |
+| **Team Total** | — | — | **80** | **78** | **98%** | **19** | **4.1** | ↓ 2% behind plan |
+
+**Additional Metrics** (optional):
+
+| Salesperson | Sales Cycle (days) | Win Rate | Pipeline/Quota Ratio | CSAT Score |
+|---|---|---|---|---|
+| Priya Desai | 35 | 35% | 2.5x | 4.8/5 |
+| Ravi Sharma | 55 | 25% | 3.2x | 4.2/5 |
+| Amit Singh | 45 | 20% | 2.0x | 4.3/5 |
+
+**Insights**:
+- Priya has highest quota % (leading indicator: high CSAT, faster sales cycle)
+- Ravi's sales cycle is longer (enterprise = normal); at risk due to 2 slipped deals
+- Amit struggling; needs coaching or territory adjustment
+
+---
+
+### 6. KEY LEADING INDICATORS (Predictive Metrics)
+
+Track metrics that predict future revenue (not lagging revenue itself).
+
+**Leading Indicators** (updated weekly/bi-weekly):
+
+| Indicator | Definition | Target | Current | Status | Implication for Revenue |
+|---|---|---|---|---|---|
+| **Qualified Leads (30+ days old)** | Leads that have had 2+ interactions | 50+ | 48 | Yellow | On track for M+1; M+2 may short |
+| **Active Pipeline (Move Last 30 Days)** | Deals that advanced stage in last month | 15+ | 12 | Yellow | Fewer deals advancing; velocity slowing |
+| **Sales Activity (Calls/Demos)** | # of qualified customer interactions | 200+ | 185 | Yellow | Activity down; may impact future pipeline |
+| **Customer Response Rate** | % of outbound emails with reply | >20% | 18% | Yellow | Email content or list quality issue |
+| **Avg Sales Cycle (Recent Deals)** | Days from first meeting to close | 45 days | 52 days | Red | Extending; decision-making getting slower |
+
+**Dashboard Update Frequency**: Weekly (Monday AM) to sales team
+
+**Action Triggers**:
+- If Qualified Leads <40: emergency outbound campaign
+- If Sales Cycle >60 days: deal review with leadership; identify blockers
+- If Activity <170: coaching conversations with underperformers
+
+---
+
+## DERIVING TARGETS FROM AOP (M04)
+
+The sales targets come from {{UPSTREAM_M04}}:
+
+**From M04 AOP**:
+- Annual Revenue Target: ₹100 Cr
+- By Product/Stream: Service A ₹60 Cr, Service B ₹40 Cr
+- Quarterly ramp: Q1 ₹22 Cr, Q2 ₹24 Cr, Q3 ₹26 Cr, Q4 ₹28 Cr
+- Monthly average: ₹8.3 Cr (but with seasonal variation)
+
+**Sales Tracker Cascades** to:
+- Monthly targets by product (₹60 Cr ÷ 12 = ₹5L/month Service A)
+- Individual quotas (total ₹8.3 Cr ÷ 4 salespeople ≈ ₹20.75L each/month, adjusted for territory)
+- Pipeline coverage (need 3-4x monthly target in active pipeline)
+- Forecast expectations (M+1 forecast should approach monthly target)
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current sales team size and structure
+- Revenue streams and products
+- Current sales processes (CRM system, forecast cadence)
+
+Replace {{UPSTREAM_M04}} with:
+- Annual revenue target and breakdown by product/segment
+- Quarterly ramp plan
+- Sales team structure and quotas
+- Growth targets (new customers, expansion, churn)
+
+Replace {{INDUSTRY_TYPE}} with:
+- B2B/SaaS/D2C/Manufacturing/Professional Services
+- Typical sales cycle length
+- Average deal size
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Target vs. Actual Tables
+[Monthly and by salesperson]
+
+## Pipeline Summary
+[By stage; conversion rates; coverage analysis]
+
+## 2-Month Rolling Forecast
+[Methodology and weekly tracking table]
+
+## Revenue Bridge
+[Waterfall explanation of variance]
+
+## Sales Team Performance League
+[Rank table with individual metrics]
+
+## Key Leading Indicators
+[Predictive metrics and action triggers]
+
+## Dashboard Implementation
+[Tools, frequency, ownership]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m10",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Target vs. Actual",
+      "content": "[Monthly and by salesperson tables]",
+      "type": "template"
+    },
+    {
+      "title": "Pipeline Summary",
+      "content": "[By stage; conversion rates; coverage]",
+      "type": "template"
+    },
+    {
+      "title": "Rolling Forecast",
+      "content": "[2-month rolling forecast methodology]",
+      "type": "template"
+    },
+    {
+      "title": "Revenue Bridge",
+      "content": "[Waterfall and variance explanation]",
+      "type": "guideline"
+    },
+    {
+      "title": "Sales Team Performance",
+      "content": "[League table and rankings]",
+      "type": "template"
+    },
+    {
+      "title": "Leading Indicators",
+      "content": "[Predictive metrics and action triggers]",
+      "type": "framework"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: CRM system tracks pipeline by stage]",
+    "[ASSUMED: Sales team consistently updates deal status]",
+    "[ASSUMED: M04 revenue targets are realistic and achievable]"
+  ],
+  "gaps": [
+    "[GAP: Historical sales cycle and win rate data]",
+    "[GAP: CRM system configuration and data quality]"
+  ],
+  "consultant_checklist": {
+    "targets_from_m04": true,
+    "pipeline_coverage_healthy": true,
+    "forecast_methodology_clear": true,
+    "leading_indicators_predictive": true,
+    "individual_accountability_clear": true
+  },
+  "tokens_hint": 1900
+}
+```
+

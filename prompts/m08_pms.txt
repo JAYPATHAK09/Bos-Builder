@@ -1,0 +1,343 @@
+# M08: PERFORMANCE MANAGEMENT SYSTEM (PMS) MODULE PROMPT
+## Design Role-Based Scorecard System with KPI and Behavioral Weights
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{UPSTREAM_M01}}, {{UPSTREAM_M05}}, {{UPSTREAM_M11}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Performance Management System (PMS) translates company values and KPIs into individual role 
+accountability. It answers:
+- How are people evaluated? (On what criteria?)
+- How is performance rated? (Scale? Process?)
+- How are KPIs and values weighted?
+- How are decisions made around compensation, promotion, and separation?
+
+A well-designed PMS:
+- **Links to Values** (M01): Behavioral indicators are observable and tied to company values
+- **Links to KPIs** (M05): Role-specific KPIs are clear and cascaded from company KPIs
+- **Fair & Transparent**: Everyone knows what success looks like
+- **Development-Focused**: Creates growth opportunities, not just scorecards
+- **Indian-Context**: Aligns with labor laws, cultural expectations
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. REVIEW CYCLE RECOMMENDATION
+
+Define when and how often people are evaluated.
+
+**Typical Cadences** (pick one):
+
+| Cadence | Frequency | Best For | Notes |
+|---|---|---|---|
+| Annual Review | 1x per year (Apr-May) | Stable companies, traditional culture | Single review; can miss mid-year issues |
+| Semi-Annual | 2x per year (Sep, Apr) | Growth companies, high-accountability culture | Catches performance issues early |
+| Quarterly | 4x per year | Fast-growing startups, high-stakes roles | Keeps pulse; can feel heavy in admin |
+
+**Recommendation**: For most Indian companies: **Semi-annual reviews (Sep and Apr)** balance 
+development feedback with reasonable admin burden.
+
+**Calendar** (April-March fiscal year):
+
+- **June-July**: Mid-year 360 feedback collection
+- **Early August**: Mid-year calibration meeting
+- **Late August-Sep**: Mid-year review conversations (1:1s)
+- **November-December**: Annual planning; year-end preparation
+- **January-February**: Year-end feedback collection
+- **Early March**: Year-end calibration meeting
+- **Late March-Apr**: Year-end review conversations; compensation decisions
+
+---
+
+### 2. RATING SCALE (5-Point Recommended for India)
+
+Define the rating scale and what each level means.
+
+**Recommended Scale** (5-point for Indian context):
+
+| Rating | Label | Definition | % of Population | Implication |
+|---|---|---|---|---|
+| 5 | Exceptional / Far Exceeds | Significantly exceeds role expectations; role model | 5-10% | Promotion ready; highest raises/bonuses |
+| 4 | Exceeds | Exceeds role expectations consistently | 20-30% | Core high performers; raises/bonuses |
+| 3 | Meets | Meets role expectations; solid contributor | 40-50% | Core team; standard raises; growth opportunity |
+| 2 | Below Expectations | Does not consistently meet expectations | 5-10% | Improvement plan required; escalation path |
+| 1 | Unsatisfactory | Well below expectations; performance issue | <5% | Termination discussion or major restructuring |
+
+**Notes**:
+- Distribution should approximate above %s (bell curve)
+- Rating 2 + triggers formal improvement plan (PIP)
+- Rating 1 is termination path (requires HR + legal review in India)
+- Rating 3 is "healthy" - not every employee needs to be exceptional
+
+---
+
+### 3. KPI WEIGHT vs. BEHAVIORAL WEIGHT
+
+Define the ratio of KPI-based evaluation vs. values-based evaluation.
+
+**Typical Splits** (by role and level):
+
+| Role Level | KPI Weight | Behavioral Weight | Rationale |
+|---|---|---|---|
+| **Individual Contributor** (IC) | 60-70% | 30-40% | Direct execution drives results |
+| **Team Lead / Manager** | 50-60% | 40-50% | Balance results + team leadership |
+| **Director / Head of Function** | 40-50% | 50-60% | Strategy, culture, and team development |
+| **CEO** | 40% | 60% | Vision, values, culture ownership |
+
+**Recommendation**: Start with **60/40 (KPI/Behavioral)** for most roles; adjust by level.
+
+**Examples**:
+
+- **Sales Representative**: 70% KPI (revenue target), 30% Behavioral (customer respect, teamwork)
+- **Product Manager**: 55% KPI (feature delivery, NRR impact), 45% Behavioral (collaboration, communication)
+- **VP Sales**: 50% KPI (revenue, pipeline), 50% Behavioral (team development, integrity in deals)
+
+---
+
+### 4. ROLE SCORECARD TEMPLATE
+
+Create a standardized template for evaluating each role.
+
+**Template** (One scorecard per role):
+
+### [Role Name: Sales Executive]
+
+**Role Purpose**: [1 sentence on why this role exists]
+Example: "Drive new customer acquisition and expand existing accounts to achieve revenue targets."
+
+**KPI Goals** (60% weight):
+
+| KPI | Definition | Target (Annual) | Weight | Link to M05 |
+|---|---|---|---|---|
+| New ARR | ARR from new customers | ₹50L | 35% | Sales: New MRR |
+| Expansion ARR | ARR from upsells/expansion | ₹20L | 15% | Sales: Expansion revenue |
+| Pipeline Coverage | Pipeline value / monthly target | 3x | 15% | Sales: Pipeline |
+
+**Subtotal KPI Score**: [Weighted average of above; scaled to 0-5]
+
+**Example Calculation**:
+- New ARR: Achieved ₹45L (90% of target) = 3.6/5, weight 35% = 1.26
+- Expansion ARR: Achieved ₹15L (75% of target) = 3.0/5, weight 15% = 0.45
+- Pipeline: Achieved 2.8x (93% of target) = 3.7/5, weight 15% = 0.56
+- **KPI Score = 1.26 + 0.45 + 0.56 = 2.27 (normalized to 5-pt scale = 3.0/5)**
+
+**Behavioral Goals** (40% weight):
+
+Link behavioral indicators to company values (from {{UPSTREAM_M01}}):
+
+| Value | Behavioral Indicator | Observable Evidence | Assessment |
+|---|---|---|---|
+| **Customer-First** | "Prioritizes customer success over commission" | Customer CSAT feedback; willingness to take loss-making deals if right fit | Rating: 3 (meets expectations) |
+| **Ownership** | "Drives deals to closure; owns entire pipeline" | Deal stage discipline; proactive in overcoming objections; doesn't blame marketing | Rating: 4 (exceeds) |
+| **Collaboration** | "Works cross-functionally with CS and product teams" | CS handoff quality; product feedback; team feedback | Rating: 3 (meets) |
+| **Integrity** | "Never misrepresents product to close deals" | Customer references; ethics incident count (zero) | Rating: 5 (exceptional) |
+
+**Subtotal Behavioral Score**: [Average of above; scaled to 0-5] = 3.75/5
+
+**Final Performance Rating**:
+- KPI Score (3.0) × 60% = 1.80
+- Behavioral Score (3.75) × 40% = 1.50
+- **Final Rating = 3.3/5 (rounds to 3 = "Meets")**
+
+**Development Plan** (if rating <4):
+- Specific behaviors to improve or KPIs to drive
+- Support/coaching needed
+- Timeline for improvement
+
+---
+
+### 5. CALIBRATION PROCESS
+
+How ratings are finalized to ensure fairness and consistency.
+
+**Steps**:
+
+1. **Individual Review** (Manager only): Manager rates employee against scorecard in isolation
+2. **Peer Input** (Optional): Manager collects feedback from peers/cross-functional colleagues
+3. **Calibration Meeting** (Department level): All managers with 3+ direct reports meet to compare ratings
+   - Goal: Ensure Rating 4 in Sales = Rating 4 in Product (consistency across departments)
+   - Discuss outliers and edge cases
+   - Agree on final ratings
+4. **Senior Review** (Leadership level): CFO/CEO spot-check sample of ratings for fairness
+5. **Communication**: Manager has 1:1 with employee; explains rating, KPI achievement, behavioral feedback
+
+**Calibration Rules**:
+- [ ] No rating finalized without manager explaining against scorecard
+- [ ] Rating 4+ requires explicit discussion and approval at calibration
+- [ ] Rating 2 requires specific evidence and HR involvement
+- [ ] Rating variance across departments should not exceed ±0.5
+
+---
+
+### 6. FEEDBACK GUIDELINES
+
+How feedback is delivered and documented.
+
+**Feedback Framework**:
+
+**For High Performers (Rating 4-5)**:
+- Emphasize wins and impact
+- Explore growth aspirations (promotion path?)
+- Offer stretch opportunities or leadership development
+
+**For Solid Performers (Rating 3)**:
+- Acknowledge solid contributions
+- Identify 1-2 development areas for next period
+- Create growth plan if they aspire to promotion
+
+**For Below Expectations (Rating 2)**:
+- Be clear on gap between expectation and performance
+- Provide specific, behavioral feedback (not vague criticism)
+- Create formal improvement plan (PIP) with 30-60-day timeline
+- Document everything in writing (HR oversight required)
+
+**Feedback Conversation Template**:
+1. **Recap role purpose and context** (1 min)
+2. **Scorecard review** (5 min)
+3- **KPI discussion**: Achieve vs. target; why the gap or win
+   - **Behavioral feedback**: Link to values; specific examples
+4. **Overall rating** (1 min)
+5. **Development plan** (if <4) (3 min)
+6. **Next steps & support** (1 min)
+
+**Documentation**: Record in HR system (Google Sheets, BambooHR, or ADP)
+
+---
+
+## LINKING TO M01 (VALUES) & M05 (KPIs) & M11 (ORG CHART)
+
+**From M01 (Purpose & Values)**:
+- Behavioral indicators map directly to value definitions
+- Every value should have 2-3 observable indicators in scorecards
+- Values are non-negotiable in evaluation (not just nice-to-have)
+
+**From M05 (KPI Framework)**:
+- Role KPIs come from M05 department KPI library
+- If M05 defines "New Customer Count = VP Sales KPI," that's on scorecard
+- KPI targets cascade from company targets (CEO → Dept → Individual)
+
+**From M11 (Org Chart)**:
+- Every role in org chart should have a scorecard
+- Scorecard is tied to reporting line (to manager)
+- Scorecard should align with role's span of control
+
+**Validation Checklist**:
+- [ ] Behavioral indicators reference M01 values
+- [ ] KPIs reference M05 library
+- [ ] Role scorecard exists for every role in M11
+- [ ] Targets cascade from company goals
+- [ ] Each person has a written, signed scorecard
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Company size, org structure
+- Current PMS (if any) or absence thereof
+- Any existing review cycles or processes
+
+Replace {{UPSTREAM_M01}} with:
+- Company values and behavioral indicators (from M01)
+- Non-negotiables and how they're evaluated
+
+Replace {{UPSTREAM_M05}} with:
+- Full KPI library (department and role-level)
+- KPI targets and owners
+
+Replace {{UPSTREAM_M11}} with:
+- Full org chart
+- Role inventory (roles, levels, departments)
+- Current job descriptions
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Review Cycle Recommendation
+[Annual vs. semi-annual vs. quarterly; calendar]
+
+## Rating Scale Definition
+[5-point scale with definitions and distribution]
+
+## KPI vs. Behavioral Weight
+[Recommended ratios by role level]
+
+## Role Scorecard Templates
+[One template per major role with sample filled-out examples]
+
+## Calibration Process
+[Steps to ensure rating consistency]
+
+## Feedback Guidelines
+[How to deliver feedback for each rating]
+
+## Governance & Escalation
+[HR involvement, documentation, legal compliance]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m08",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Review Cycle",
+      "content": "[Recommended cadence and calendar]",
+      "type": "framework"
+    },
+    {
+      "title": "Rating Scale",
+      "content": "[5-point scale definitions and implications]",
+      "type": "framework"
+    },
+    {
+      "title": "KPI vs. Behavioral Weight",
+      "content": "[Ratios by role level]",
+      "type": "framework"
+    },
+    {
+      "title": "Role Scorecard Templates",
+      "content": "[Detailed templates with examples]",
+      "type": "template"
+    },
+    {
+      "title": "Calibration Process",
+      "content": "[Steps for consistency and fairness]",
+      "type": "guideline"
+    },
+    {
+      "title": "Feedback Guidelines",
+      "content": "[How to deliver feedback effectively]",
+      "type": "guideline"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: HR capability to administer PMS]",
+    "[ASSUMED: Manager willingness to have honest conversations]",
+    "[ASSUMED: Company has documented values (M01) and KPIs (M05)]"
+  ],
+  "gaps": [
+    "[GAP: Sample filled-out scorecards for all roles]",
+    "[GAP: HR policy document (separate from BOS)]"
+  ],
+  "consultant_checklist": {
+    "values_linked_in_behaviors": true,
+    "kpis_from_m05_library": true,
+    "weightings_appropriate": true,
+    "calibration_process_clear": true,
+    "feedback_templates_useful": true,
+    "india_compliant": true
+  },
+  "tokens_hint": 2700
+}
+```
+

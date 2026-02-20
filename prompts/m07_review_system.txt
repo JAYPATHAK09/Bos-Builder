@@ -1,0 +1,322 @@
+# M07: BUSINESS REVIEW MEETING SYSTEM MODULE PROMPT
+## Define Weekly, Monthly, Quarterly, and Annual Review Cadences with Agendas
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{UPSTREAM_M05}}, {{UPSTREAM_M06}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Business Review System is the operational rhythm of the organization. It's where:
+- Progress against goals is measured (KPIs reviewed)
+- Problems are surfaced and solved (escalations, risks)
+- Decisions are made and communicated
+- Accountability is maintained
+
+A well-designed review system has:
+- **Cadences**: Weekly standup, monthly business review, quarterly strategic review, annual planning
+- **Agendas**: Structured, time-boxed, clear outcomes
+- **Participants**: Right people in each meeting (not everyone in everything)
+- **Escalation Rules**: Clear criteria for when something needs higher-level attention
+- **Action Tracking**: How commitments are captured and followed up
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. WEEKLY OPERATIONS STANDUP (30 min, Dept Heads)
+
+The weekly sync keeps leadership aligned on top priorities and blockers.
+
+**Attendees**:
+- CEO/Founder
+- Department heads (VP Sales, VP Eng, VP CS, VP Marketing, CFO)
+- If large org: include Ops leader or COO
+
+**Format** (30 minutes total):
+
+| Agenda Item | Duration | Owner | Output |
+|---|---|---|---|
+| **Pulse Check**: CEO shares 1-2 week priorities | 2 min | CEO | Alignment on what matters this week |
+| **Top 3 Blockers**: Each dept head shares top blocker; ask for help | 15 min | Dept heads | Action items captured; blockers escalated |
+| **Key Metrics Snapshot**: Quick review of CEO KPIs (red/yellow/green) | 5 min | CFO | Identify metric misses early |
+| **Risk Flags**: Any emerging risks or decisions needed | 5 min | All | Escalation to CEO for urgent decisions |
+| **Next Week Preview**: What's coming next week | 3 min | CEO | Prepare team for upcoming events |
+
+**Success Criteria**:
+- [ ] Meeting ends on time (hard stop at 30 min)
+- [ ] All blockers are assigned to someone (not just discussed)
+- [ ] CEO is aware of key blockers before they derail week
+- [ ] Attendance >90% (no-show is red flag for culture)
+
+**Escalation Rules**:
+- If red on revenue → CEO drives sales leadership meeting same day
+- If red on cash → Emergency finance review
+- If engineering blocker → CTO + CEO resolve in 24 hours
+
+---
+
+### 2. MONTHLY BUSINESS REVIEW (MBR) (90 min, Leadership)
+
+The MBR is the primary review rhythm. It's where KPIs are assessed, actions are reviewed, and next month is planned.
+
+**Attendees**:
+- CEO/Founder
+- CFO / Finance lead
+- Department heads (Sales, Product, CS, Marketing, Ops, HR)
+- Optional: Board advisor or investor (once/quarter)
+
+**Agenda** (90 minutes):
+
+| Agenda Item | Duration | Owner | Output |
+|---|---|---|---|
+| **CEO Context**: Recap of priorities; market updates | 5 min | CEO | Shared context for month review |
+| **Financial Snapshot**: Revenue, gross margin, OPEX vs budget, cash position | 10 min | CFO | Green/yellow/red on financials |
+| **KPI Review**: Review all CEO KPIs vs plan; deep-dive on red metrics | 30 min | CFO + metric owners | Identify root cause of misses; action items assigned |
+| **Department Updates**: Each dept head shares: wins, challenges, next month priorities | 20 min | Dept heads | Transparency on progress; identify cross-dept dependencies |
+| **Risk & Issue Log**: Review top 5-10 risks; any new risks; mitigation updates | 15 min | CEO + Risk owner | Updated risk register |
+| **Next Month Plan**: Priorities, key deliverables, milestones for next 30 days | 10 min | Dept heads | Clear 1-month roadmap |
+
+**MBR Metrics Agenda** (30-min deep dive):
+
+**Table Format** (shows all KPIs):
+
+| KPI | Target | Actual | % Plan | RAG | Owner | Root Cause (if red/yellow) | Action Plan |
+|---|---|---|---|---|---|---|---|
+| Monthly Revenue | ₹5.5 Cr | ₹5.2 Cr | 95% | Yellow | VP Sales | 2 large deals slipped to next month | Weekly pipeline review; deal coaching |
+| Gross Margin % | 65% | 62% | 95% | Yellow | CFO | Eng headcount growth outpacing revenue | Headcount freeze after Q2 hiring |
+| NRR % | 110% | 108% | 98% | Green | VP CS | Expansion revenue lower than forecast | Customer expansion campaign in Q2 |
+| CAC | ₹X | ₹X | 100% | Green | VP Marketing | On track | No action needed |
+
+**Action Item Tracking** (from MBR):
+
+| Action | Owner | Due Date | Status | Notes |
+|---|---|---|---|---|
+| Conduct engineering cost review | CFO | End of month | In progress | Deciding between headcount vs contractors |
+| Run deal coaching for slipped deals | VP Sales | Next week | — | Weekly cadence starting next Monday |
+
+---
+
+### 3. QUARTERLY BUSINESS REVIEW (QBR) (4 hours, Leadership + Board)
+
+The QBR is a deeper strategic review. It's often held with board members or advisors and shapes the next quarter.
+
+**Attendees**:
+- CEO/Founder
+- CFO
+- All department heads
+- Board members or key advisors
+- Optional: Key customers for feedback
+
+**Agenda** (4 hours, with break):
+
+| Agenda Item | Duration | Owner | Output |
+|---|---|---|---|
+| **CEO State of Business**: 10-min overview of quarter performance vs plan | 10 min | CEO | Alignment on strategic health |
+| **Financial & KPI Review**: Deep-dive on all metrics, trends, 3-quarter view | 45 min | CFO + owners | Identify patterns; strategic implications |
+| **Initiative Deep-Dives**: Review progress on 3-5 strategic initiatives (from M03/M04) | 60 min | Initiative owners | Assess on-track/at-risk/completed status |
+| **Customer & Market Insights**: Voice of customer, competitive intel, market trends | 30 min | VP Sales + VP CS | Market context for next quarter plans |
+| **Org Health**: Headcount, attrition, engagement, culture updates | 15 min | HR | People health check |
+| **Risk Register Review**: Update top 10 risks; any new emerging risks | 20 min | CEO + Risk owner | Mitigation status update |
+| **Next Quarter Plan**: Priorities, key deliverables, initiatives for Q+1 | 30 min | Dept heads | Clear 3-month roadmap with milestones |
+
+**QBR Format** (slide deck):
+
+Typically:
+- Slide 1: CEO letter (1 page: performance vs plan, key learnings, Q+1 priorities)
+- Slide 2: KPI dashboard (CEO KPIs with 3-quarter trend)
+- Slides 3-5: Department deep-dives (wins, challenges, Q+1 plans)
+- Slide 6: Risk register with updates
+- Slide 7: Q+1 priorities and deliverables
+
+---
+
+### 4. ANNUAL PLANNING CYCLE (2-3 days, Leadership + Board)
+
+The annual planning session creates the next year's AOP (M04). Usually held in November-December 
+for April-March fiscal year.
+
+**Attendees**:
+- CEO/Founder
+- CFO
+- All department heads
+- Board members (usually 1-2 days with them)
+
+**Agenda** (multi-day offsite):
+
+| Day | Session | Duration | Owner | Output |
+|---|---|---|---|---|
+| **Day 1** | Environmental Scan: Market, competition, customer trends | 2 hours | CEO + Market lead | Market context for planning |
+| | Strategic Themes for Next Year: Refine M03 strategy for upcoming year | 3 hours | CEO + Strategy | 3-5 strategic themes for FY |
+| **Day 2** | Financial Targets: Revenue, margin, headcount targets for FY | 2 hours | CFO + Dept leads | Annual targets by dept |
+| | Department Deep-Dive Planning: Each dept plans initiatives, budget, KPIs | 4 hours | Dept heads | Detailed department plans |
+| | Risk Identification & Mitigation: Full planning team | 1.5 hours | CEO + Risk team | Comprehensive risk register |
+| **Day 3** | Draft AOP Assembly: Finance pulls together budget and targets | 3 hours | CFO + Ops | Integrated AOP draft |
+| | Board Presentation Prep: Build investor/board update | 1.5 hours | CEO + CFO | Board-ready presentation |
+
+**Output**: Complete AOP (M04) ready for board approval.
+
+---
+
+### 5. ANNUAL PLANNING CALENDAR (Full-Year Review Schedule)
+
+A visual timeline of all reviews and decision points throughout the year.
+
+**Format** (for April-March fiscal year in India):
+
+| Month | Review Type | Focus | Owner | Outcome |
+|---|---|---|---|---|
+| April (Month 1) | Kickoff | Communicate annual plan; Q1 priorities | CEO | Team alignment on plan |
+| May | Monthly | May metrics; Q1 progress | CFO | Adjust if needed |
+| June | Monthly | June metrics; Q1 closing | CFO | Q1 actual performance |
+| July (Month 4) | Quarterly (Q1 QBR) | Q1 review; Q2-Q3 plans | CEO + Board | Finalize H2 priorities |
+| August | Monthly | Aug metrics; Q2 progress | CFO | Track execution |
+| Sep | Monthly | Sep metrics; Q2 closing | CFO | Q2 actual performance |
+| Oct (Month 7) | Quarterly (Q2 QBR) | Q2 review; H2 outlook | CEO + Board | Mid-year strategy check |
+| Nov | Monthly | Nov metrics; Q3 progress | CFO | Track execution |
+| Dec | Monthly | Dec metrics; Q3 closing; **ANNUAL PLANNING BEGINS** | CFO | Q3 actual; start FY+1 planning |
+| Jan (Month 10) | Annual Planning Offsite (2-3 days) | Plan FY+1 strategy, budget, org | CEO + Board | Complete AOP for FY+1 |
+| Feb | Monthly | Jan metrics; Q4 progress | CFO | Track execution; AOP finalization |
+| Mar | Monthly | Mar metrics; Q4 closing | CFO | FY actual performance |
+| Mar 30-31 | Annual Review & Board Meeting | FY results; investor update | CEO + CFO | Board approval of FY results |
+
+---
+
+### 6. ACTION TRACKING SYSTEM
+
+How actions are captured, tracked, and followed up to completion.
+
+**Format** (Shared Action Log):
+
+| Action | Owner | Due Date | Priority | Status | Notes | Follow-up Date |
+|---|---|---|---|---|---|---|
+| Fix engineering cost structure | CFO | Mar 31 | High | In progress | Evaluating headcount vs. outsourcing | Feb 15 MBR |
+| Launch SME pricing tier | VP Product | Feb 15 | High | On track | 80% complete; QA in progress | Weekly standup |
+| Hire customer success manager | HR | Jan 31 | High | At Risk | Got 15 applications; extending search | Hiring update in MBR |
+
+**Rules**:
+- Every action has a named owner (not "team")
+- Due dates are specific (not "soon")
+- Status is updated in the action log before each review meeting
+- Red/yellow/green status is clear
+- Actions older than 30 days overdue should be escalated
+
+**Tool**: Use Google Sheets, Asana, Jira, or Notion (pick one tool; live shared doc).
+
+---
+
+## PULLING FROM M05 & M06
+
+The review system uses:
+- **M05 KPIs**: All metrics reviewed come from the M05 library (same definitions, owners, targets)
+- **M06 Dashboards**: Actual data for review comes from the M06 dashboards
+
+**Validation Checklist**:
+- [ ] Every KPI reviewed in MBR is in M05 library
+- [ ] Metrics and targets match M05 definitions exactly
+- [ ] MBR pulls data from M06 dashboards (not manual reports)
+- [ ] Department heads are the same owners listed in M05
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current company size and org structure
+- Current review cadences (if any)
+- Key stakeholders (founders, board members)
+
+Replace {{UPSTREAM_M05}} with:
+- Full KPI library with metrics, targets, owners
+- KPI hierarchy
+
+Replace {{UPSTREAM_M06}} with:
+- CEO and department dashboards
+- Data refresh cadences
+- Alert definitions
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Weekly Standup
+[Attendees, agenda, timing, escalation rules]
+
+## Monthly Business Review (MBR)
+[Full agenda with timings, KPI review process, action tracking]
+
+## Quarterly Business Review (QBR)
+[Full agenda, format, board-level items]
+
+## Annual Planning Cycle
+[Multi-day offsite structure, outputs]
+
+## Annual Planning Calendar
+[Month-by-month schedule for full year]
+
+## Action Tracking System
+[How actions are captured, tracked, reviewed]
+
+## Governance & Rhythms
+[Decision-making authority, escalations, meeting norms]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m07",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Weekly Standup",
+      "content": "[Attendees, agenda, 30-min format]",
+      "type": "template"
+    },
+    {
+      "title": "Monthly Business Review",
+      "content": "[Full 90-min agenda with KPI review]",
+      "type": "template"
+    },
+    {
+      "title": "Quarterly Business Review",
+      "content": "[4-hour agenda, initiatives review]",
+      "type": "template"
+    },
+    {
+      "title": "Annual Planning Cycle",
+      "content": "[Multi-day offsite; outputs]",
+      "type": "template"
+    },
+    {
+      "title": "Planning Calendar",
+      "content": "[Month-by-month schedule]",
+      "type": "framework"
+    },
+    {
+      "title": "Action Tracking",
+      "content": "[System for capturing and following up actions]",
+      "type": "guideline"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Leadership team can commit to weekly/monthly cadences]",
+    "[ASSUMED: KPI data is fresh (from M06 dashboards)]"
+  ],
+  "gaps": [
+    "[GAP: Current meeting rhythm and effectiveness feedback]"
+  ],
+  "consultant_checklist": {
+    "agendas_are_time_boxed": true,
+    "metrics_pulled_from_m05": true,
+    "escalation_rules_clear": true,
+    "action_tracking_defined": true,
+    "all_meetings_documented": true
+  },
+  "tokens_hint": 2600
+}
+```
+

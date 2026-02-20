@@ -1,0 +1,285 @@
+# M05: KPI FRAMEWORK MODULE PROMPT
+## Define North Star, CEO, and Department KPI Library with Hierarchy
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{MODULE_INPUTS}}, {{UPSTREAM_M04}}, {{INDUSTRY_TYPE}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The KPI Framework is a library of metrics that define "how we keep score." It creates:
+- **North Star Metric**: The single most important metric that drives company success
+- **CEO-Level KPIs**: 5-7 metrics the CEO reviews weekly (revenue, margin, churn, growth, health)
+- **Department KPIs**: Function-specific metrics (sales, product, ops, finance, etc.)
+- **KPI Definitions**: Standardized template for each metric (formula, frequency, owner, targets)
+- **KPI Hierarchy**: Links department KPIs up to CEO KPIs to North Star
+
+This framework is the "source of truth" for what success looks like. It feeds into M06 (MIS Dashboard), 
+M07 (Reviews), M08 (Performance), and M09 (Variable Pay).
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. NORTH STAR METRIC (1 metric, company-wide)
+
+The North Star is the ONE metric that best measures progress toward the Vision/Mission.
+
+**Criteria**:
+- Directly tied to business success (revenue, retention, impact)
+- Drives all other metrics downstream
+- Actionable (teams can directly influence it)
+- Measurable weekly/monthly
+- Understandable to all levels of organization
+
+**Examples by Business Model**:
+
+| Business Model | North Star | Why |
+|---|---|---|
+| SaaS | Monthly Recurring Revenue (MRR) or ARR | Direct measure of sustainable business |
+| D2C / E-commerce | Monthly Revenue or GMV | Direct revenue measure |
+| Marketplace | Gross Merchandise Value (GMV) or Active Users | Liquidity and engagement |
+| Professional Services | Utilization % or Project Margins | Drive profitability |
+| Manufacturing | Units Produced to Plan or Gross Margin % | Drive operations and profitability |
+
+**CEO Question**: "If we move this ONE metric in the right direction, does everything else improve?"
+
+---
+
+### 2. CEO-LEVEL KPIs (5-7 metrics)
+
+CEO reviews these weekly or bi-weekly. They represent company health across key dimensions.
+
+**Typical Dimensions** (select 5-7 for your company):
+
+| Dimension | Sample KPI | Frequency | Why It Matters |
+|---|---|---|---|
+| **Revenue & Growth** | Monthly Revenue / ARR | Weekly | Are we growing? |
+| **Profitability** | Gross Margin % / Net Margin % | Monthly | Are we efficient? |
+| **Retention** | NRR % / Churn Rate | Monthly | Is our business sticky? |
+| **Scale & Efficiency** | Customer Acquisition Cost (CAC) | Monthly | Are we scaling efficiently? |
+| **People & Culture** | Headcount / Attrition Rate | Monthly | Is team healthy? |
+| **Cash & Finance** | Cash on Hand / Burn Rate / OPEX vs Budget | Weekly | Can we survive and invest? |
+| **Product & Quality** | Feature Completion % / Bugs vs Target | Monthly | Is product roadmap on track? |
+
+**Example CEO Dashboard** (for SaaS, 5-7 metrics):
+1. **MRR**: ₹X Cr target, ₹X Cr actual, 95% of plan
+2. **Gross Margin %**: 65% target, 62% actual (flag: engineering costs up)
+3. **NRR %**: 110% target, 108% actual
+4. **New Customer Count**: 50 target, 45 actual, 90% of plan
+5. **CAC**: ₹X target, ₹X actual (2.5x LTV = healthy)
+6. **Headcount**: 50 current, 55 by year-end (on plan)
+7. **Cash Runway**: 24 months (sufficient)
+
+---
+
+### 3. DEPARTMENT-LEVEL KPIs (By Industry Type)
+
+Each department has 3-5 primary KPIs that roll up to CEO metrics or North Star.
+
+**For B2B/SaaS**:
+
+| Department | Primary KPIs | Owner | Frequency |
+|---|---|---|---|
+| Sales | ARR/MRR, New Customer Count, Pipeline, Win Rate | VP Sales | Weekly |
+| Product & Eng | Feature Velocity, Bug Severity, Code Quality | VP Product | Weekly/Monthly |
+| Customer Success | NRR, Churn Rate, CSAT, Onboarding Time | VP CS | Weekly/Monthly |
+| Marketing | MQL, Conversion to Customer, CAC, Content Output | VP Marketing | Monthly |
+| Finance | OPEX vs Budget, Headcount Burn, Cash Runway | CFO | Weekly |
+
+**For D2C/E-commerce**:
+
+| Department | Primary KPIs | Owner | Frequency |
+|---|---|---|---|
+| Sales / Direct | GMV, AOV, Orders, Conversion Rate | VP Sales | Daily |
+| Marketing | CAC, ROAS, Traffic, Email Open Rate | VP Marketing | Daily/Weekly |
+| Operations | Fulfillment Time, Return Rate, Inventory Turnover | COO | Daily |
+| Finance | Gross Margin %, COGS, Payables Days | CFO | Weekly |
+
+**For Manufacturing**:
+
+| Department | Primary KPIs | Owner | Frequency |
+|---|---|---|---|
+| Operations | Production Capacity %, Quality Rate, Lead Time | COO | Daily |
+| Sales | Units Sold, Mix %, ASP, Order Backlog | VP Sales | Weekly |
+| Finance | COGS per Unit, Gross Margin %, Cash Cycle | CFO | Monthly |
+| HR | Utilization %, Safety Incidents, Attrition | HR Manager | Monthly |
+
+---
+
+### 4. KPI DEFINITION TABLE (STANDARDIZED TEMPLATE)
+
+For each KPI, define consistently so multiple people calculate it the same way.
+
+**Format** (create one row per KPI):
+
+| KPI Name | Definition | Formula | Frequency | Owner | Annual Target | Monthly Target (Avg) | Threshold/Floor | Data Source | Green/Yellow/Red |
+|---|---|---|---|---|---|---|---|---|---|
+| Monthly Recurring Revenue (MRR) | Predictable revenue from active subscriptions | Sum of all active monthly subscriptions + annual contracts / 12 | Weekly | VP Sales / CFO | ₹X Cr | ₹X Cr | ₹X Cr (floor) | Accounting system / Stripe | >102% on plan = Green |
+| Net Revenue Retention (NRR) | % growth in cohort revenue year-over-year | (Revenue this month from [X months ago cohort]) / (Revenue [X months ago]) * 100 | Monthly | VP CS | 110% | 110% | 100% (floor = no churn) | CS platform / spreadsheet | >110% = Green |
+| Gross Margin % | % of revenue remaining after COGS | (Revenue - COGS) / Revenue * 100 | Monthly | CFO | 65% | 65% | 60% | Accounting system | >65% = Green |
+| Customer Acquisition Cost (CAC) | Cost to acquire one customer | Total Sales + Marketing spend / New customers acquired | Monthly | VP Marketing | ₹X | ₹X | ₹X | Marketing analytics + Accounting |  |
+
+**Quality Checklist for KPI Definitions**:
+- [ ] Formula is clear and unambiguous
+- [ ] Data source is identified (not just "we'll figure it out")
+- [ ] Owner is a named role (not "team")
+- [ ] Frequency is realistic (don't track hourly unless automated)
+- [ ] Target is based on plan or historical trend (not arbitrary)
+- [ ] Floor/threshold is defensible (below this = problem)
+- [ ] Calculation methodology is documented (so no surprises)
+
+---
+
+### 5. KPI HIERARCHY (CEO → Department → Team)
+
+Map how department KPIs ladder up to CEO KPIs to North Star.
+
+**Example Hierarchy** (SaaS):
+
+```
+NORTH STAR: Monthly Recurring Revenue (MRR)
+│
+├─ CEO KPI: Revenue Growth (MoM %)
+│   │
+│   ├─ Sales: New MRR (new customers)
+│   │   ├─ Enterprise Sales: New Enterprise MRR
+│   │   └─ Mid-Market Sales: New Mid-Market MRR
+│   │
+│   └─ CS: NRR (expansion + retention)
+│       ├─ CS: Gross Churn %
+│       └─ CS: NRR by Cohort
+│
+├─ CEO KPI: Gross Margin %
+│   │
+│   └─ Finance: COGS as % Revenue
+│       └─ Ops: Infrastructure Cost
+│
+├─ CEO KPI: CAC
+│   │
+│   └─ Marketing: CAC Payback Period
+│       ├─ Digital Marketing: CAC (paid)
+│       └─ Sales Dev: CAC (sales-assisted)
+│
+└─ CEO KPI: Headcount / Burn
+    │
+    └─ HR: Attrition %
+        └─ [By department]
+```
+
+**Purpose**: If a team metric is off, you can trace it up to understand impact on CEO metrics and North Star.
+
+---
+
+### 6. PULLING CONTEXT FROM M04 (AOP)
+
+For each metric, reference the AOP goals to set targets:
+
+**Example**:
+
+From {{UPSTREAM_M04}}:
+- AOP Annual Goal: "Reach ₹XX Cr revenue"
+- This translates to KPI: Revenue = ₹XX Cr annual, ₹X Cr average monthly
+- Q1 target (conservative ramp): ₹X Cr, Q4 target: ₹X.X Cr
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Business model, revenue streams
+- Current customer base, scale
+- Current team size by function
+
+Replace {{MODULE_INPUTS}} with:
+- Any existing KPI set or metrics being tracked
+- Known blind spots (metrics NOT being tracked)
+
+Replace {{UPSTREAM_M04}} with:
+- Annual revenue targets
+- Quarterly targets
+- Department-level goals
+- Key initiatives and their success metrics
+
+Replace {{INDUSTRY_TYPE}} with:
+- B2B/SaaS/D2C/Manufacturing/Professional Services
+- (Determines which KPIs are relevant)
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## North Star Metric
+[Name and rationale]
+
+## CEO-Level KPIs
+[5-7 metrics with brief definitions and targets]
+
+## Department KPI Library
+[By function: 3-5 KPIs per department]
+
+## KPI Definition Catalog
+[Detailed table: name, definition, formula, frequency, owner, targets, thresholds, source]
+
+## KPI Hierarchy & Waterfall
+[Visual or text-based hierarchy showing rollup]
+
+## Measurement & Governance
+[How KPIs are tracked, reviewed, updated]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m05",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "North Star Metric",
+      "content": "[Name and strategic rationale]",
+      "type": "framework"
+    },
+    {
+      "title": "CEO-Level KPIs",
+      "content": "[5-7 metrics]",
+      "type": "framework"
+    },
+    {
+      "title": "Department KPI Library",
+      "content": "[By function, 3-5 per dept]",
+      "type": "framework"
+    },
+    {
+      "title": "KPI Definition Catalog",
+      "content": "[Standardized definitions table]",
+      "type": "template"
+    },
+    {
+      "title": "KPI Hierarchy",
+      "content": "[Rollup to CEO KPIs to North Star]",
+      "type": "diagnostic"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Data sources are available/automatable]",
+    "[ASSUMED: Targets align with M04 AOP goals]"
+  ],
+  "gaps": [
+    "[GAP: Historical data to validate thresholds]",
+    "[GAP: Data source integration plan]"
+  ],
+  "consultant_checklist": {
+    "north_star_aligned_with_vision": true,
+    "ceo_kpis_are_actionable": true,
+    "kpi_definitions_unambiguous": true,
+    "targets_realistic": true,
+    "hierarchy_complete": true
+  },
+  "tokens_hint": 2800
+}
+```
+

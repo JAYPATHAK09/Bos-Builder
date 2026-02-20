@@ -1,0 +1,328 @@
+# M04: ANNUAL OPERATING PLAN (AOP) MODULE PROMPT
+## Generate Complete Year-1 Operational Roadmap with Goals, KPIs, Budget, and Rhythm
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{MODULE_INPUTS}}, {{UPSTREAM_M03}}, {{INDUSTRY_TYPE}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Annual Operating Plan translates Year 1 of the 3-Year Strategic Plan into actionable monthly, 
+quarterly, and annual goals with accountability, budget, and operating rhythm.
+
+An AOP answers:
+- What are the annual goals and KPIs for the company?
+- What is the quarterly roadmap (Q1-Q4)?
+- What are department-specific plans and ownership?
+- How much budget is allocated? To what?
+- What is the operating rhythm (weekly/monthly/quarterly reviews)?
+- What are the top 10 risks and mitigations?
+
+An AOP is a "living document" reviewed quarterly and updated in December for the next fiscal year.
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. EXECUTIVE SUMMARY (1-2 pages)
+
+A concise overview of the AOP for the CFO/Board.
+
+**Includes**:
+- FY Headline: "FY2025-26: Scale Product to 500 customers, launch India operations"
+- Revenue target: ₹XX Cr
+- Gross margin target: Y%
+- Headcount: Current → Target
+- 3-5 strategic priorities (pulled from M03)
+- Top 3 risks
+
+---
+
+### 2. ANNUAL GOALS WITH KPIs
+
+Define 5-7 company-level annual goals (linked to M03 strategic themes).
+
+**Format**:
+
+| Goal # | Goal | Owner | Annual Target | Quarterly Milestones (Q1/Q2/Q3/Q4) | KPI Tracking |
+|---|---|---|---|---|---|
+| 1 | Reach ₹XX Cr revenue | CFO/CEO | ₹XX Cr | Q1: ₹XX Cr; Q2: ₹XX Cr; Q3: ₹XX Cr; Q4: ₹XX Cr | Monthly revenue tracking |
+| 2 | Launch product in 3 new geographies | COO/Product | 3 geos | Q2: 1 geo; Q3: 2 geos; Q4: 3 geos | Geo expansion log |
+
+**Quality Criteria**:
+- Each goal is SMART (Specific, Measurable, Achievable, Relevant, Time-bound)
+- Owner is a named role (not "team")
+- Quarterly milestones are checkpoints (not just linear division of annual target)
+- Every goal is tied to a KPI that will be tracked (links to M05)
+
+---
+
+### 3. DEPARTMENT-WISE PLANS (Auto-selected by Industry Type)
+
+Generate function-specific plans for key departments. Use {{INDUSTRY_TYPE}} to select relevant functions:
+
+**For B2B/SaaS** (typical):
+- Sales (ARR targets, new customer acquisition, pipeline management)
+- Product & Engineering (feature roadmap, technical debt, quality metrics)
+- Customer Success (NRR, churn, onboarding velocity)
+- Finance & Admin (headcount budget, OPEX management, compliance)
+- Marketing (MQL targets, brand initiatives, content roadmap)
+
+**For D2C/E-commerce** (typical):
+- Direct Sales (revenue, order volume, AOV)
+- Marketing & Growth (CAC, ROAS, channel mix)
+- Operations (fulfillment, returns, inventory)
+- Finance (COGS, margins, cash flow)
+- Product (UX improvements, feature launches)
+
+**For Manufacturing** (typical):
+- Sales (volume, mix, account management)
+- Operations (production capacity, quality, supply chain)
+- Finance (cost per unit, margin improvement)
+- HR (talent, safety, process compliance)
+
+**For Professional Services** (typical):
+- Delivery (utilization, project margins, quality)
+- Sales & BD (new client acquisition, AUM, pricing)
+- Finance (project accounting, cost management, cash)
+- Talent & Culture (hiring, bench management)
+
+**Format for Each Dept**:
+
+| Department | Primary Goals (3-4) | Owner | Budget Allocation | Key Risks | Link to M05 KPIs |
+|---|---|---|---|---|---|
+| Sales | ARR: ₹XX Cr; New Cust: X; Pipeline: 3x | VP Sales | ₹XX L | Pricing pressure; retention | Revenue, NRR, CAC |
+
+**Detailed Subgoals** (one per department):
+- Specific initiatives, headcount plans, tool/tech investments
+- Q1-Q4 roadmap (what ships when)
+- Success metrics unique to that function
+
+---
+
+### 4. QUARTERLY ROADMAP (Q1-Q4)
+
+Translate annual initiatives into quarterly execution plan.
+
+**Format**:
+
+| Phase | Months | Key Deliverables | Dependencies | Owner |
+|---|---|---|---|---|
+| Q1 (Apr-Jun) | Jan-Mar or Q1 | - Launch SME pricing tier (Product) | Market research (completed Q4) | Product |
+| | | - Hire 2 sales engineers (Sales) | | HR/VP Sales |
+| | | - Build customer feedback loop (CS) | | VP CS |
+| Q2 (Jul-Sep) | Apr-Jun or Q2 | [Continue...] | | |
+
+**Quality Notes**:
+- Dependencies must be identified (if Q2 depends on Q1, flag it)
+- Owner is a named role
+- Deliverables should be verifiable (not vague like "improve product")
+
+---
+
+### 5. BUDGET PLAN (BY CATEGORY AND DEPARTMENT)
+
+Allocate annual budget and explain major line items.
+
+**Format (Summary)**:
+
+| Category | Budget (₹L) | % of Revenue | Notes |
+|---|---|---|---|
+| **People Costs** | ₹XXX L | 45% | Salary, benefits, hiring (X new roles) |
+| **Technology & Tools** | ₹XX L | 8% | Cloud infra, software licenses, AI tools |
+| **Sales & Marketing** | ₹XX L | 15% | Events, campaigns, partner co-marketing |
+| **Operations** | ₹XX L | 12% | Facilities, compliance, outsourced services |
+| **R&D / Product Development** | ₹XX L | 15% | Engineering, product design, R&D |
+| **Admin & Finance** | ₹XX L | 5% | Accounting, legal, HR systems |
+| **Contingency (5%)** | ₹XX L | 5% | Buffer for opportunities and emergencies |
+| **TOTAL OPEX** | ₹XXX L | 100% | |
+
+**Department Budget Breakdown** (optional detail):
+
+| Department | Annual Budget | Headcount | Budget per HC | Key Investments |
+|---|---|---|---|---|
+| Engineering | ₹XXX L | 10 | ₹XX L/person | Senior hire, infra upgrade |
+| Sales | ₹XX L | 4 | ₹XX L/person | Comp, travel, tools |
+
+---
+
+### 6. RISK REGISTER (Top 10 Risks)
+
+Identify major risks and mitigation plans.
+
+**Format**:
+
+| Risk # | Risk | Category | Likelihood | Impact | Mitigation | Owner | Trigger |
+|---|---|---|---|---|---|---|---|
+| 1 | Key engineer departure | Talent | Medium | High | Competitive comp review; knowledge docs; mentor junior | CTO | If anyone indicates planning departure |
+| 2 | Slower customer acquisition due to market slowdown | Market | Medium | High | Diversify sales channels; improve unit economics; expand TAM | VP Sales | If pipeline growth <20% vs. forecast |
+
+**Risk Categories**: Talent, Market, Product, Technology, Financial, Compliance, Competitive, Operational
+
+---
+
+### 7. OPERATING RHYTHM (Weekly / Monthly / Quarterly Cadences)
+
+Define how the org will review progress and stay aligned.
+
+**Format**:
+
+| Cadence | Meeting | Participants | Duration | Agenda | Success Metrics |
+|---|---|---|---|---|---|
+| **Weekly** | Ops Standup | Dept heads | 30 min | Top 3 priorities; blockers; risk flags | All blockers resolved same week or escalated |
+| **Monthly** | Business Review (MBR) | Leadership team | 90 min | KPI review (vs. plan); wins; risks; next month forecast | RAG status on all goals; actions assigned |
+| **Quarterly** | Strategic Review (QBR) | Full leadership | 4 hours | Strategic progress; market insights; org health; next quarter plan | Decision on Q+1 priorities |
+| **Annual** | Annual Planning | CEO + Board | 1-2 days | Full AOP for next year; 3-year plan refresh | New AOP published by [date] |
+
+**Note**: This content feeds into M07 (Review System).
+
+---
+
+### 8. KEY SUCCESS INDICATORS & METRICS
+
+List the 5-10 metrics that matter most for AOP execution.
+
+**Format**:
+
+| Metric | Owner | Frequency | Annual Target | Q1 | Q2 | Q3 | Q4 |
+|---|---|---|---|---|---|---|---|
+| Revenue | CFO | Monthly | ₹XX Cr | ₹X Cr | ₹X Cr | ₹X Cr | ₹X Cr |
+| Gross Margin % | CFO | Monthly | 60% | 55% | 58% | 60% | 62% |
+| NRR % | VP CS | Monthly | 110% | 105% | 108% | 110% | 112% |
+| Employee Satisfaction | HR | Quarterly | 8.0/10 | — | 7.5 | — | 8.0 |
+
+**Note**: These become detailed KPI definitions in M05.
+
+---
+
+## ALIGNMENT WITH M03
+
+The AOP is the "operational translation" of M03 Year 1 targets. Confirm:
+- Annual revenue target ≈ M03 Year 1 revenue target
+- Strategic initiatives from M03 are reflected as Q1-Q4 deliverables
+- Department heads have clear goals connected to M03 themes
+- Risk register includes risks identified in M03
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current revenue, margin, headcount
+- Fiscal year (Apr-Mar in India typically)
+- Business model and key revenue streams
+
+Replace {{MODULE_INPUTS}} with:
+- Any existing annual plans or goals
+- Product roadmap priorities
+- Talent plan (hiring needs)
+- Budget constraints or guidance from CFO/Board
+
+Replace {{UPSTREAM_M03}} with:
+- Year 1 targets and initiatives
+- Year 1 revenue breakdown by stream
+- Investment and headcount needs
+- Year 1 success definition
+
+Replace {{INDUSTRY_TYPE}} with:
+- B2B / SaaS / D2C / Manufacturing / Professional Services
+- (Determines which departments are included and their specific KPIs)
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Executive Summary
+[1-2 pages: Headline, targets, priorities, risks]
+
+## Annual Goals & KPIs
+[Table with 5-7 goals, quarterly milestones, KPI tracking]
+
+## Department-Wise Plans
+[For each key function: goals, owner, budget, roadmap, risks]
+
+## Quarterly Roadmap
+[Q1-Q4 deliverables and dependencies]
+
+## Budget Plan
+[By category and department; notes on major investments]
+
+## Risk Register
+[Top 10 risks with likelihood, impact, mitigation]
+
+## Operating Rhythm
+[Weekly/monthly/quarterly/annual meetings and cadences]
+
+## Success Metrics
+[KPI targets for year and by quarter]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m04",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Executive Summary",
+      "content": "[Headline, targets, priorities]",
+      "type": "framework"
+    },
+    {
+      "title": "Annual Goals",
+      "content": "[Company-level goals with targets and quarterly milestones]",
+      "type": "framework"
+    },
+    {
+      "title": "Department Plans",
+      "content": "[Function-specific plans by industry type]",
+      "type": "template"
+    },
+    {
+      "title": "Quarterly Roadmap",
+      "content": "[Q1-Q4 deliverables and dependencies]",
+      "type": "template"
+    },
+    {
+      "title": "Budget & Resources",
+      "content": "[Budget allocation by category and dept]",
+      "type": "template"
+    },
+    {
+      "title": "Risk Register",
+      "content": "[Top risks, likelihood, impact, mitigation]",
+      "type": "diagnostic"
+    },
+    {
+      "title": "Operating Rhythm",
+      "content": "[Meeting cadences and agendas]",
+      "type": "guideline"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Fiscal year is April-March]",
+    "[ASSUMED: Current team capacity can support plan]",
+    "[ASSUMED: Market conditions stable (no major disruption)]"
+  ],
+  "gaps": [
+    "[GAP: Detailed product roadmap with engineering estimates]",
+    "[GAP: Sales pipeline data to validate ARR targets]",
+    "[GAP: Detailed hiring plan with roles and timelines]"
+  ],
+  "consultant_checklist": {
+    "aop_aligns_with_m03": true,
+    "goals_are_smart": true,
+    "department_plans_complete": true,
+    "quarterly_roadmap_realistic": true,
+    "budget_covers_plan": true,
+    "risks_identified": true,
+    "operating_rhythm_defined": true
+  },
+  "tokens_hint": 3500
+}
+```
+

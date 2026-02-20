@@ -1,0 +1,383 @@
+# M11: ORG CHART & JOB DESCRIPTION MAPPING MODULE PROMPT
+## Define Organizational Structure, Roles, and Competency Framework
+
+**Input Variables**: {{COMPANY_PROFILE}}, {{UPSTREAM_M01}}, {{UPSTREAM_M05}}
+
+---
+
+## CONTEXT & OBJECTIVE
+
+The Org Chart defines WHO does WHAT and for WHOM. It creates:
+- **Org Structure**: Visual hierarchy and reporting lines
+- **Role Inventory**: Complete list of roles, levels, and departments
+- **Job Descriptions**: Purpose, responsibilities, qualifications, competencies for each role
+- **KPI Ownership**: Which role owns which KPI (from M05)
+- **Competency Framework**: Link between company values (M01) and required skills
+- **Succession Plan**: How organization scales as company grows
+
+A well-designed org structure:
+- **Clear Accountability**: No role ambiguity; each person knows their scope
+- **Appropriate Span of Control**: Managers have 4-8 direct reports (healthy range)
+- **Values-Aligned**: Roles reflect and reinforce company values
+- **KPI-Linked**: Each role has clear KPI owners and targets
+- **Growth-Ready**: Template for future expansion (e.g., "when we hit 50 people, hire 2 more engineers")
+
+---
+
+## GENERATION INSTRUCTIONS
+
+### 1. ORG STRUCTURE DESCRIPTION (Text-Based + ASCII Tree)
+
+Describe the organization in words and visually.
+
+**Text Description** (Sample):
+
+"This organization has 4 departments reporting to the CEO:
+- **Sales**: VP Sales (1 person) manages 3 Account Executives
+- **Product & Engineering**: VP Product + VP Engineering (2 people); 8 engineers report to VP Eng
+- **Customer Success**: VP CS (1 person) manages 2 CSMs
+- **Finance & Admin**: CFO (1 person) plus HR Manager (shared with Operations)
+
+The structure is flat for a 20-person company, with VP-level leaders managing individual contributors. 
+CEO is hands-on with strategy and board/investor relations. No COO yet (hiring at 40 headcount)."
+
+**ASCII Tree**:
+
+```
+                        CEO / Founder
+                              │
+                ┌─────────────┼─────────────┬─────────────┐
+                │             │             │             │
+            VP Sales      VP Product   VP Engineering   VP CS    CFO    HR Mgr
+              (1p)          (1p)          (1p)          (1p)    (1p)   (shared)
+                │             │             │             │
+          ┌─────┴──────┐    n/a       ┌────┴────┐    ┌─┴──┐
+          │   │   │    │              │   │   │  │   │    │
+         AE  AE  AE   SDR            Eng Eng Eng Eng CSM  CSM
+         (3p)              (8p)         (2p)
+```
+
+---
+
+### 2. ROLE INVENTORY TABLE
+
+Complete list of all roles in the organization.
+
+**Format**:
+
+| Role | Department | Level | Reports To | Headcount | Key Responsibilities | Link to KPIs (M05) |
+|---|---|---|---|---|---|---|
+| CEO / Founder | Executive | L6 | Board | 1 | Vision, strategy, board relations | Revenue, Margin, Headcount |
+| VP Sales | Sales | L5 | CEO | 1 | Sales team leadership, revenue | New ARR, Pipeline, Win Rate |
+| Account Executive | Sales | L3 | VP Sales | 3 | Close new customers | New ARR (individual), Pipeline |
+| Sales Dev Rep | Sales | L2 | VP Sales | 1 | Lead gen and qualification | MQL, Qualified Leads |
+| VP Product | Product | L5 | CEO | 1 | Product strategy, roadmap | Feature Velocity, NRR Impact |
+| VP Engineering | Product | L5 | CEO | 1 | Engineering team, quality | Bug Rate, Code Quality |
+| Engineer (Senior) | Engineering | L4 | VP Eng | 2 | Architecture, mentoring | Feature Velocity, Quality |
+| Engineer (Mid) | Engineering | L3 | VP Eng | 4 | Feature development | Feature Velocity, Quality |
+| Engineer (Junior) | Engineering | L2 | VP Eng | 2 | Feature development, learning | Feature Velocity, Quality |
+| VP Customer Success | CS | L5 | CEO | 1 | Customer retention, NRR | NRR, Churn, CSAT |
+| Customer Success Manager | CS | L3 | VP CS | 2 | Customer health, onboarding | NRR, Churn (cohort) |
+| CFO | Finance | L5 | CEO | 1 | Financials, cash, board reporting | Gross Margin, OPEX, Burn |
+| HR Manager | People | L3 | CEO | 1 (shared with Ops) | Hiring, culture, performance | Attrition, Engagement |
+
+**Total Headcount**: 20 people
+
+**Span of Control Analysis**:
+- CEO: 5 direct reports (high but acceptable given company size)
+- VP Sales: 4 direct reports (healthy)
+- VP Eng: 8 direct reports (high; consider splitting at 12 engineers)
+- VP CS: 2 direct reports (healthy)
+- CFO: 0 (but shared HR)
+
+---
+
+### 3. JOB DESCRIPTION TEMPLATE (For Each Role)
+
+Create detailed job descriptions that are actionable and align to values/KPIs.
+
+**Template** (One per role):
+
+### [ROLE: Account Executive]
+
+**Department**: Sales | **Reports To**: VP Sales | **Level**: L3
+
+**Role Purpose** (1 sentence):
+Acquire and onboard new customers to achieve ARR targets while ensuring fit and customer success.
+
+**Key Responsibilities** (8-10 bullet points):
+1. **Target Pursuit**: Manage assigned account list and pipeline toward annual new ARR quota (₹50L)
+2. **Discovery & Qualification**: Conduct needs analysis; qualify inbound and SDR-sourced leads; estimate deal value
+3. **Proposal & Negotiation**: Present solutions; negotiate terms; handle objections; drive to close
+4. **Deal Management**: Track deal progress in CRM; provide weekly forecast updates; escalate blockers
+5. **Onboarding**: Hand-off to Customer Success; ensure customer success setup and initial training
+6. **Account Growth**: Identify expansion opportunities within existing accounts; sell add-ons/upgrades
+7. **Sales Methodology**: Follow company sales process; update CRM daily; attend sales training and coaching
+8. **Collaboration**: Coordinate with Product on feature requests; with CS on customer success; with Finance on contracts
+9. **Market Feedback**: Provide customer insights to Product and Leadership on use cases, objections, market trends
+10. **Professional Development**: Participate in quarterly coaching and training; develop sales skills
+
+**Key Performance Indicators** (Link to M05):
+- **New ARR**: ₹50L annual target (₹4.17L/month average); cascaded from company target ₹100 Cr
+- **Expansion ARR**: ₹10L annual target (sell into existing customers)
+- **Pipeline Coverage**: Maintain 3x monthly quota (₹12.5L ongoing pipeline)
+- **Win Rate**: 25-30% (of proposals)
+- **Sales Cycle**: 40-50 days (from first meeting to close)
+- **CSAT**: 4.5/5 from customers you've closed
+
+**Required Qualifications**:
+- 3+ years of B2B SaaS sales experience (or equivalent B2B
+- Proven track record of quota achievement (80%+ hit rate)
+- Experience with CRM systems (Salesforce or equivalent)
+- Bachelor's degree or equivalent sales experience
+
+**Preferred Qualifications**:
+- Enterprise software sales experience
+- Experience selling to [TARGET CUSTOMER TYPE]
+- MBA or advanced sales certification
+
+**Competencies & Values Alignment** (Link to M01):
+
+| Company Value | Behavioral Indicator | Assessment in Role | How It Shows |
+|---|---|---|---|
+| **Customer-First** | Prioritizes customer success over commission | Never pressure customer into unsuitable deal | Ask solution fit questions before pricing |
+| **Ownership** | Drives deals to closure; owns pipeline | Completes all pipeline activities; doesn't blame marketing | Updates CRM daily; proactive follow-ups |
+| **Collaboration** | Works cross-functionally with CS and Product | Solid handoff to CS team; provides customer feedback | Weekly sync with CS team; monthly product feedback |
+| **Excellence** | Strives for mastery; high professional standards | Continuously improves sales skills; keeps learning | Attends training; tries new sales techniques |
+| **Integrity** | Never misrepresents product to close deals | Honest in conversations; discloses limitations | Candid about product gaps; recommends competitors if better fit |
+
+**Reporting & Review**:
+- Reports to VP Sales (weekly 1:1s)
+- Reviewed in semi-annual performance review (M08)
+- Bonus eligible: 20% of base salary (linked to New ARR + Expansion KPIs)
+
+**Compensation & Benefits** (typical):
+- Base Salary: ₹12-15L (depending on experience)
+- Variable Bonus: 20% of base (up to ₹2.4-3L at 100% of targets)
+- Total Comp Range: ₹14.4-18L
+
+---
+
+### 4. KPI OWNERSHIP MATRIX (Which Role Owns Which KPI)
+
+Map M05 KPIs to roles for accountability.
+
+**Format**:
+
+| KPI | Owner Role | Secondary (Supports) | Frequency | Target | Notes |
+|---|---|---|---|---|---|
+| Monthly Revenue (MRR) | VP Sales | All Sales team | Weekly | ₹8.3 Cr | Rolled up from individual quotas |
+| New Customer Count | VP Sales / AE | Marketing (sourcing) | Weekly | 50/month | Individual AE quotas sum to team target |
+| Pipeline | VP Sales | AE (pipeline owners) | Weekly | 1.5x MRR | Updated per deal closed |
+| NRR % | VP CS | CS team (per cohort) | Monthly | 110% | Cohort-level target |
+| Churn Rate | VP CS | CS team (account management) | Monthly | 5% | Gross churn target |
+| Gross Margin % | CFO | VP Eng (COGS), VP Ops | Monthly | 65% | Engineering headcount impacts margin |
+| Feature Velocity | VP Eng | Engineering team | Monthly | 6 features/month | Weighted by complexity |
+| Bug Severity | VP Eng | QA + Engineering | Weekly | <5 critical bugs | Quality metric |
+| Headcount | CFO | HR | Monthly | 50 FTE (current: 20) | Hiring plan tracking |
+| Cash Runway | CFO | Finance team | Weekly | >12 months | Critical metric |
+
+**Accountability Rule**: Each KPI has ONE owner (not "owned by committee"). The owner is responsible for:
+- Achieving the target (or explaining why not)
+- Providing weekly/monthly updates
+- Identifying blockers and requesting help
+- Correcting course if off track
+
+---
+
+### 5. COMPETENCY FRAMEWORK (Map Values to Required Skills)
+
+Define the skills and behaviors required for each role.
+
+**Framework**:
+
+| Company Value | Definition | Key Competencies | How Measured |
+|---|---|---|---|
+| **Customer-First** | Prioritizes customer success over commission | Problem-Solving, Listening, Empathy, Solutions Thinking | Customer feedback, peer review, customer CSAT scores |
+| **Ownership** | Drives outcomes; doesn't make excuses | Accountability, Initiative, Execution, Follow-through | KPI achievement, manager assessment, peer feedback |
+| **Collaboration** | Works cross-functionally; elevates team | Communication, Teamwork, Trust, Influence | 360 feedback, cross-dept interviews, team feedback |
+| **Excellence** | Strives for mastery; high standards | Attention to Detail, Continuous Learning, Ambition | Quality of work, training participation, self-assessment |
+| **Integrity** | Does the right thing, even when hard | Ethics, Transparency, Honesty, Reliability | Ethical incident rate (zero), transparency in communication |
+
+**Competency Levels** (for each role):
+
+| Competency | Level 1 (IC) | Level 3 (Manager) | Level 5 (Director) |
+|---|---|---|---|
+| **Accountability** | Owns individual tasks; hits personal targets | Owns team outcomes; drives accountability in team | Owns function results; builds accountability culture |
+| **Communication** | Clear in 1:1 and small groups | Articulate in meetings; leads presentations | Influences board and external stakeholders |
+| **Strategic Thinking** | Understands role in strategy | Contributes to dept strategy | Shapes company strategy |
+
+---
+
+### 6. ORG SCALING TEMPLATE (Plan for Future Headcount)
+
+Plan how the org structure evolves as company grows.
+
+**Growth Stages**:
+
+| Headcount | Stage | Key Org Changes | New Roles Added |
+|---|---|---|---|
+| 20 | Current (Early Growth) | Flat structure; VP-level managers | — |
+| 30 (Target in Y1) | Expansion | COO joins; 2 new sales engineers | Sales Engineer (1), Operations Manager (0.5) |
+| 50 (Target in Y2) | Scaling | Multiple managers per function; levels become visible | Engineering Lead, Finance Manager, HR Manager (dedicated) |
+| 100 (Target in Y3) | Maturity | Departments split into teams; more middle management | Product Manager, Engineering Manager (4 people), Sales Manager |
+
+**Example: Engineering Org Scaling**:
+
+**At 20 people** (Current):
+```
+       VP Engineering (1)
+              │
+    ┌─────────┼──────────┐
+    │         │          │
+ Senior AE  Mid AE   Junior AE
+  (2p)       (4p)      (2p)
+```
+
+**At 50 people**:
+```
+         VP Engineering (1)
+              │
+    ┌─────────┴──────────┐
+    │                    │
+ Eng Lead (Backend)  Eng Lead (Frontend)
+    (1p)                 (1p)
+    │                    │
+┌─┬─┴─┬─┐            ┌─┬─┴─┬─┐
+Mid Mid Mid           Mid Mid Mid
+(3p)                  (3p)
+```
+
+---
+
+## LINKING TO M01 (VALUES) & M05 (KPIs) & M08 (PMS)
+
+**From M01 (Purpose & Values)**:
+- Job descriptions reference behavioral indicators
+- Competency framework maps to values
+- PMS scorecards use same behavioral language
+
+**From M05 (KPI Framework)**:
+- Each role has clear KPI ownership
+- Targets cascade from company KPIs
+- Accountability matrix shows who owns what
+
+**From M08 (Performance Management)**:
+- Role scorecards use KPIs from this module
+- Behavioral evaluation uses competencies from this module
+- Values alignment is measured against job descriptions
+
+**Validation Checklist**:
+- [ ] Every role in org chart has a JD
+- [ ] Every M05 KPI has an owner role
+- [ ] Every role has competencies linked to M01 values
+- [ ] Span of control is healthy (4-8 direct reports)
+- [ ] Future org plan exists for 2-3 year growth
+
+---
+
+## INPUT INJECTION TEMPLATE
+
+Replace {{COMPANY_PROFILE}} with:
+- Current org structure and headcount
+- Department breakdown
+- Key roles and who fills them
+- Growth headcount plans (current vs. target)
+
+Replace {{UPSTREAM_M01}} with:
+- Company values and behavioral indicators
+- Non-negotiables
+
+Replace {{UPSTREAM_M05}} with:
+- Full KPI library
+- Department and role-level KPIs
+- KPI targets and owners
+
+---
+
+## OUTPUT STRUCTURE (MARKDOWN)
+
+## Org Structure & Reporting Lines
+[Text description + ASCII tree]
+
+## Role Inventory
+[Complete role list with levels, reports-to, responsibilities]
+
+## Job Description Templates
+[3-5 sample JDs; template provided for others]
+
+## KPI Ownership Matrix
+[Each KPI assigned to owner role]
+
+## Competency Framework
+[Values mapped to competencies and levels]
+
+## Org Scaling Plan
+[Evolution as headcount grows from current to 100+]
+
+## Key Principles
+[Span of control, accountability, etc.]
+
+---
+
+## JSON OUTPUT SCHEMA
+
+```json
+{
+  "module_key": "m11",
+  "version": "v0",
+  "markdown": "[Full markdown output above]",
+  "sections": [
+    {
+      "title": "Org Structure",
+      "content": "[Text description + ASCII tree]",
+      "type": "framework"
+    },
+    {
+      "title": "Role Inventory",
+      "content": "[Complete role list table]",
+      "type": "template"
+    },
+    {
+      "title": "Job Descriptions",
+      "content": "[Sample JDs for key roles]",
+      "type": "template"
+    },
+    {
+      "title": "KPI Ownership Matrix",
+      "content": "[Which role owns which KPI]",
+      "type": "framework"
+    },
+    {
+      "title": "Competency Framework",
+      "content": "[Values to competencies mapping]",
+      "type": "framework"
+    },
+    {
+      "title": "Org Scaling Plan",
+      "content": "[Growth trajectory and role additions]",
+      "type": "guideline"
+    }
+  ],
+  "suggestions": [],
+  "assumptions": [
+    "[ASSUMED: Current org structure is correct]",
+    "[ASSUMED: Growth headcount targets are realistic]",
+    "[ASSUMED: KPI ownership is non-overlapping]"
+  ],
+  "gaps": [
+    "[GAP: Detailed job descriptions for all roles (sample provided)]",
+    "[GAP: Compensation benchmarking by role]",
+    "[GAP: Succession plan for key roles]"
+  ],
+  "consultant_checklist": {
+    "every_role_has_jd": true,
+    "all_kpis_have_owner": true,
+    "values_in_competencies": true,
+    "span_of_control_healthy": true,
+    "scaling_plan_realistic": true
+  },
+  "tokens_hint": 3200
+}
+```
+
